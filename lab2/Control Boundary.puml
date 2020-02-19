@@ -1,0 +1,13 @@
+@startuml Control Boundary ObjectStereotypeFontColor
+boundary RouteInput
+boundary MapDisplay
+boundary ListDisplay
+control RouteGenerator
+control GetLocation
+control GetNearbyInfo
+control Notifications
+control Login
+control AdminOIFunctions
+control AdminPhotoFunctions
+control PhotoFunctions
+@enduml
