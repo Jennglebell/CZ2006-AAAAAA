@@ -2,6 +2,7 @@
 boundary RouteInput
 boundary MapDisplay
 boundary ListDisplay
+boundary FilterDisplay
 control RouteGenerator
 control GetLocation
 control GetNearbyInfo
@@ -10,4 +11,5 @@ control Login
 control AdminOIFunctions
 control AdminPhotoFunctions
 control PhotoFunctions
+control Filter
 @enduml
