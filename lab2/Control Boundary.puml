@@ -1,4 +1,4 @@
-@startuml Control Boundary ObjectStereotypeFontColor
+@startuml Control Boundary
 boundary RouteInput
 boundary MapDisplay
 boundary ListDisplay
