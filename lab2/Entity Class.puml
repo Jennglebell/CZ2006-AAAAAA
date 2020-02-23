@@ -3,6 +3,6 @@ OICollection *-- ObjectInterest
 Photo --* ObjectInterest
 User --* UserCollection
 User <|-- Admin
-User .. ObjectInterest
+User -- ObjectInterest
 InfoCollection *-- Information
 @enduml

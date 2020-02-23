@@ -1,3 +1,25 @@
 @startuml Sequence Diagram
+control GetNearbyInfo
+control GetLocation
+entity OICollection
+entity ObjectInterest
+entity InfoCollection
+entity Information
 
+-> GetNearbyInfo
+GetNearbyInfo -> GetLocation: request location
+GetLocation --> GetNearbyInfo: userLocation
+GetNearbyInfo -> OICollection: userLocation
+loop for all OI
+	OICollection -> ObjectInterest: check within 5km
+	ObjectInterest --> OICollection
+end
+OICollection --> GetNearbyInfo: OI list
+GetNearbyInfo -> InfoCollection: userLocation
+loop for all Information
+	InfoCollection -> Information: check within 5km
+	Information --> InfoCollection
+end
+InfoCollection --> GetNearbyInfo: Info list
+<-- GetNearbyInfo : OI+Info List
 @enduml
