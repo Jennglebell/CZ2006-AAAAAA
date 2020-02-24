@@ -4,5 +4,6 @@ Photo --* ObjectInterest
 User --* UserCollection
 User <|-- Admin
 User -- ObjectInterest
+User -- Filters
 InfoCollection *-- Information
 @enduml
