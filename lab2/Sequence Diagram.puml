@@ -1,6 +1,6 @@
 @startuml Sequence Diagram
 actor User
-control MapDisplay
+boundary MapDisplay
 control GetNearbyInfo
 control GetLocation
 entity OICollection
