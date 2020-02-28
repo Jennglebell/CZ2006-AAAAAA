@@ -1,1 +1,5 @@
 CZ2006 AAAAAA
+
+# SVN Repo - VERY IMPT!!!
+https://155.69.100.25/svn/CX2006/SS9/AAAAAA
+Only B180003 can access
