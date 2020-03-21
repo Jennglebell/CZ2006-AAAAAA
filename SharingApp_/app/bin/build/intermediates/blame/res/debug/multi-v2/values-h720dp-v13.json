@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\jcddy\\Desktop\\OneDrive - Nanyang Technological University\\Code-Cracker\\GitHub\\CZ2006-AAAAAA\\SharingApp_\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-h720dp-v13\\values-h720dp-v13.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\jcddy\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\7805d3ce167f92b4d2663cfb4c4147ab\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "66",
+                        "endOffsets": "117"
+                    }
+                }
+            ]
+        }
+    ]
+}

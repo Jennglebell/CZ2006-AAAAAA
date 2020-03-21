@@ -1,0 +1,113 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.sharingapp"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="19"
+8-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="26" />
+9-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml
+10
+11    <!-- To auto-complete the email text field in the login form with the user's emails -->
+12    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+12-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:6:5-71
+12-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:6:22-68
+13    <uses-permission android:name="android.permission.READ_PROFILE" />
+13-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:7:5-71
+13-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:7:22-68
+14    <uses-permission android:name="android.permission.READ_CONTACTS" />
+14-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:8:5-72
+14-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:8:22-69
+15    <uses-permission android:name="android.permission.INTERNET" />
+15-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:9:5-67
+15-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:9:22-64
+16    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+16-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:10:5-79
+16-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:10:22-76
+17
+18    <application
+18-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:12:5-42:19
+19        android:allowBackup="true"
+19-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:13:9-35
+20        android:debuggable="true"
+21        android:icon="@mipmap/ic_launcher"
+21-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:14:9-43
+22        android:label="@string/app_name"
+22-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:15:9-41
+23        android:supportsRtl="true"
+23-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:16:9-35
+24        android:testOnly="true"
+25        android:theme="@style/AppTheme" >
+25-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:17:9-40
+26        <activity
+26-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:18:9-27:20
+27            android:name="com.example.sharingapp.LoginActivity"
+27-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:19:13-42
+28            android:label="@string/title_activity_login"
+28-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:20:13-57
+29            android:theme="@style/AppTheme.NoActionBar" >
+29-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:21:13-56
+30            <intent-filter>
+30-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:22:13-26:29
+31                <action android:name="android.intent.action.MAIN" />
+31-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:23:17-69
+31-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:23:25-66
+32
+33                <category android:name="android.intent.category.LAUNCHER" />
+33-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:25:17-77
+33-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:25:27-74
+34            </intent-filter>
+35        </activity>
+36        <activity
+36-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:28:9-31:59
+37            android:name="com.example.sharingapp.MainActivity"
+37-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:29:13-41
+38            android:label="@string/title_activity_main"
+38-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:30:13-56
+39            android:theme="@style/AppTheme.NoActionBar" />
+39-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:31:13-56
+40        <activity android:name="com.example.sharingapp.AddItemActivity" />
+40-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:32:9-53
+40-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:32:19-50
+41        <activity android:name="com.example.sharingapp.EditItemActivity" />
+41-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:33:9-54
+41-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:33:19-51
+42        <activity android:name="com.example.sharingapp.EditUserActivity" />
+42-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:34:9-54
+42-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:34:19-51
+43        <activity android:name="com.example.sharingapp.SearchActivity" />
+43-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:35:9-52
+43-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:35:19-49
+44        <activity android:name="com.example.sharingapp.ViewItemActivity" />
+44-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:36:9-54
+44-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:36:19-51
+45        <activity
+45-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:37:9-39:59
+46            android:name="com.example.sharingapp.ViewItemBidsActivity"
+46-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:38:13-49
+47            android:theme="@style/AppTheme.NoActionBar" />
+47-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:39:13-56
+48        <activity android:name="com.example.sharingapp.ViewUserActivity" />
+48-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:40:9-54
+48-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:40:19-51
+49        <activity android:name="com.example.sharingapp.BorrowedItemsActivity" />
+49-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:41:9-68
+49-->C:\Users\jcddy\Desktop\OneDrive - Nanyang Technological University\Code-Cracker\GitHub\CZ2006-AAAAAA\SharingApp_\app\src\main\AndroidManifest.xml:41:19-56
+50
+51        <meta-data
+51-->[com.android.support:design:26.1.0] C:\Users\jcddy\.gradle\caches\transforms-2\files-2.1\97d375f2d1c6efd6189bd3bf7948bbc3\design-26.1.0\AndroidManifest.xml:26:9-28:38
+52            android:name="android.support.VERSION"
+52-->[com.android.support:design:26.1.0] C:\Users\jcddy\.gradle\caches\transforms-2\files-2.1\97d375f2d1c6efd6189bd3bf7948bbc3\design-26.1.0\AndroidManifest.xml:27:13-51
+53            android:value="26.1.0" />
+53-->[com.android.support:design:26.1.0] C:\Users\jcddy\.gradle\caches\transforms-2\files-2.1\97d375f2d1c6efd6189bd3bf7948bbc3\design-26.1.0\AndroidManifest.xml:28:13-35
+54        <meta-data
+54-->[android.arch.lifecycle:runtime:1.0.0] C:\Users\jcddy\.gradle\caches\transforms-2\files-2.1\1f45d69d51a7cd9269ac5863e813b302\runtime-1.0.0\AndroidManifest.xml:25:9-27:47
+55            android:name="android.arch.lifecycle.VERSION"
+55-->[android.arch.lifecycle:runtime:1.0.0] C:\Users\jcddy\.gradle\caches\transforms-2\files-2.1\1f45d69d51a7cd9269ac5863e813b302\runtime-1.0.0\AndroidManifest.xml:26:13-58
+56            android:value="27.0.0-SNAPSHOT" />
+56-->[android.arch.lifecycle:runtime:1.0.0] C:\Users\jcddy\.gradle\caches\transforms-2\files-2.1\1f45d69d51a7cd9269ac5863e813b302\runtime-1.0.0\AndroidManifest.xml:27:13-44
+57    </application>
+58
+59</manifest>
