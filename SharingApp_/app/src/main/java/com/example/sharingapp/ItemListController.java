@@ -66,9 +66,6 @@ public class ItemListController {
         return item_list.getSearchItems(user_id);
     }
 
-    public ArrayList<Item> getBorrowedItemsByUsername(String username) {
-        return item_list.getBorrowedItemsByUsername(username);
-    }
 
     public Item getItemById(String id){
         return item_list.getItemById(id);

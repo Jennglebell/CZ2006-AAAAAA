@@ -32,7 +32,7 @@ public class ItemFragmentAdapter extends ArrayAdapter<Item> {
         Item item = getItem(position);
         ItemController item_controller = new ItemController(item);
 
-        String title = "Title: " + item_controller.getTitle();
+        String title = "Name: " + item_controller.getTitle();
         String description = "Description: " + item_controller.getDescription();
         Bitmap thumbnail = item_controller.getImage();
         String status = "Status: " + item_controller.getStatus();

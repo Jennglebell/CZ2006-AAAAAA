@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ItemActivityAdapter is responsible for what information is displayed in ListView entries.
@@ -32,7 +33,7 @@ public class ItemActivityAdapter extends ArrayAdapter<Item> {
 
         String title = "Title: " + item_controller.getTitle();
         String description = "Description: " + item_controller.getDescription();
-        Bitmap thumbnail = item_controller.getImage();
+        List<Bitmap> thumbnails = item_controller.getImages();
         String status = "Status: " + item_controller.getStatus();
 
         // Check if an existing view is being reused, otherwise inflate the view.
@@ -43,12 +44,19 @@ public class ItemActivityAdapter extends ArrayAdapter<Item> {
         TextView title_tv = (TextView) convertView.findViewById(R.id.title_tv);
         TextView status_tv = (TextView) convertView.findViewById(R.id.status_tv);
         TextView description_tv = (TextView) convertView.findViewById(R.id.description_tv);
-        ImageView photo = (ImageView) convertView.findViewById(R.id.image_view);
-
-        if (thumbnail != null) {
-            photo.setImageBitmap(thumbnail);
-        } else {
-            photo.setImageResource(android.R.drawable.ic_menu_gallery);
+        ImageView photo1 = (ImageView) convertView.findViewById(R.id.image_view);
+        ImageView photo2 = (ImageView) convertView.findViewById(R.id.image_view2);
+        List<ImageView> photos = new ArrayList<>();
+        photos.add(photo1);
+        photos.add(photo2);
+        int i = 0;
+        for(Bitmap thumbnail : thumbnails) {
+            if (thumbnail != null) {
+                photos.get(i).setImageBitmap(thumbnail);
+            } else {
+                photos.get(i).setImageResource(android.R.drawable.ic_menu_gallery);
+            }
+            i++;
         }
 
         title_tv.setText(title);

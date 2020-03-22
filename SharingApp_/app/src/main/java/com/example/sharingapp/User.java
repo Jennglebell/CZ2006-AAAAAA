@@ -10,6 +10,8 @@ public class User extends Observable {
     private String email;
     private String id;
 
+    private boolean isAdmin;
+
     User(String username, String email, String id) {
         this.username = username;
         this.email = email;
@@ -19,6 +21,27 @@ public class User extends Observable {
         } else {
             updateId(id);
         }
+    }
+
+    User(String username, String email, String id, boolean isAdmin) {
+        this.username = username;
+        this.email = email;
+
+        this.isAdmin = false;
+
+        if (id == null){
+            setId();
+        } else {
+            updateId(id);
+        }
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
+    }
+
+    public boolean getAdmin(){
+        return isAdmin;
     }
 
     public String getId(){

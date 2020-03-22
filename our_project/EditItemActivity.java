@@ -15,9 +15,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Editing a pre-existing item consists of deleting the old item and adding a new item with the old
  * item's id.
@@ -37,69 +34,53 @@ public class EditItemActivity extends AppCompatActivity implements Observer {
 
     private Bitmap image;
     private int REQUEST_CODE = 1;
-    private int photo_ = 0;
     private ImageView photo;
-    private ImageView photo2;
-    private List<ImageView> photos;
-    private EditText title;
-    private EditText maker;
-    private EditText description;
-    private EditText length;
-    private EditText width;
-    private EditText height;
-    private EditText minimum_bid;
 
-    private TextView borrower_left_tv;
-    private TextView borrower_right_tv;
-    private TextView status_right_tv;
+    private EditText name;
+    private EditText dateCreater;
+    private EditText description;
+    private EditText longtitude;
+    private EditText latitude;
+
+
+    // what is this??????????
+    private TextView like;
+    // private TextView borrower_right_tv;
+    // private TextView status_right_tv;
 
     private Button save_button;
-    private Button view_bids_button;
-    private Button contact_info_button;
     private Button delete_button;
-    private Button set_available_button;
     private ImageButton add_image_button;
     private ImageButton delete_image_button;
 
     private boolean on_create_update;
     private int pos;
 
-    private String title_str;
-    private String maker_str;
+    private String name_str;
+    private String dateCreater_str;
     private String description_str;
-    private String length_str;
-    private String width_str;
-    private String height_str;
-    private String user_id;
-    private String minimum_bid_str;
-    private String status_str;
-    private String borrower_username_str;
+    private String longtitude_str;
+    private String latitude_str;
 
-
-    List<Bitmap> images;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_item);
 
-        title = (EditText) findViewById(R.id.title);
-        maker = (EditText) findViewById(R.id.maker);
+        name = (EditText) findViewById(R.id.name);
+        dateCreater = (EditText) findViewById(R.id.dateCreater);
         description = (EditText) findViewById(R.id.description);
         length = (EditText) findViewById(R.id.length);
         width = (EditText) findViewById(R.id.width);
         height = (EditText) findViewById(R.id.height);
         status_right_tv = (TextView) findViewById(R.id.status_right_tv);
-        minimum_bid = (EditText) findViewById(R.id.minimum_bid);                    // initially GONE
+        longtitude = (EditText) findViewById(R.id.longtitude);                    // initially GONE
         borrower_left_tv = (TextView) findViewById(R.id.borrower_left_tv);          // initially GONE
         borrower_right_tv = (TextView) findViewById(R.id.borrower_right_tv);        // initially GONE
         photo = (ImageView) findViewById(R.id.image_view);
-        photo2 = (ImageView) findViewById(R.id.image_view2);
-        photos = new ArrayList<>();
-        photos.add(photo);
-        photos.add(photo2);
+
         add_image_button = (ImageButton) findViewById(R.id.add_image_button);       // initially GONE
         delete_image_button = (ImageButton) findViewById(R.id.cancel_image_button); // initially GONE
         delete_button = (Button) findViewById(R.id.delete_item);                    // initially GONE
@@ -110,7 +91,7 @@ public class EditItemActivity extends AppCompatActivity implements Observer {
 
         Intent intent = getIntent(); // Get intent from ItemsFragment
         pos = intent.getIntExtra("position", 0);
-        user_id = intent.getStringExtra("user_id");
+       // user_id = intent.getStringExtra("user_id");
 
         context = getApplicationContext();
 
@@ -129,35 +110,29 @@ public class EditItemActivity extends AppCompatActivity implements Observer {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(intent, REQUEST_CODE);
-            //REQUEST_CODE++;
         }
     }
 
     public void deletePhoto(View view) {
         image = null;
         photo.setImageResource(android.R.drawable.ic_menu_gallery);
-        Toast.makeText(context, "Photo removed.", Toast.LENGTH_SHORT).show();
+        Toast.dateCreateText(context, "Photo removed.", Toast.LENGTH_SHORT).show();
     }
-    // List<Bitmap> images;
-    int j=0;
+
     @Override
     protected void onActivityResult(int request_code, int result_code, Intent intent){
-        images = item_controller.getImages();
         if (request_code == REQUEST_CODE && result_code == RESULT_OK){
             Bundle extras = intent.getExtras();
             image = (Bitmap) extras.get("data");
-            images.add(image);
-
+            photo.setImageBitmap(image);
+            Toast.dateCreateText(context, "Photo added.", Toast.LENGTH_SHORT).show();
         }
-        photos.get(j).setImageBitmap(image);
-        j++;
-        Toast.makeText(context, "Photo added.", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onBackPressed() {
         Intent main_intent = new Intent(this, MainActivity.class);
-        main_intent.putExtra("user_id", user_id);
+      //  main_intent.putExtra("user_id", user_id);
         startActivity(main_intent);
     }
 
@@ -172,37 +147,35 @@ public class EditItemActivity extends AppCompatActivity implements Observer {
         user_list_controller.removeObserver(this);
 
         final Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra("user_id", user_id);
+      //  intent.putExtra("user_id", user_id);
 
         // Delay launch of new activity to allow server more time to process request
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Toast.makeText(context, "Item removed.", Toast.LENGTH_SHORT).show();
+                Toast.dateCreateText(context, "Item removed.", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
             }
         }, 750);
     }
 
     public void saveItem(View view) {
-        title_str = title.getText().toString();
-        maker_str = maker.getText().toString();
+        name_str = name.getText().toString();
+        dateCreater_str = dateCreater.getText().toString();
         description_str = description.getText().toString();
         length_str = length.getText().toString();
         width_str = width.getText().toString();
         height_str = height.getText().toString();
         status_str = item_controller.getStatus();
-        minimum_bid_str = minimum_bid.getText().toString();
+        longtitude_str = longtitude.getText().toString();
 
         if(!validateInput()){
             return;
         }
 
         String item_id = item_controller.getId(); // Reuse the item id
-//        images = item_controller.getImages();
-        System.out.println("save numbers of image are:" + images.size());
-        // Item updated_item = new Item(title_str, maker_str, description_str, user_id, minimum_bid_str, image, item_id);
-        Item updated_item = new Item(title_str, maker_str, description_str, user_id, minimum_bid_str, images, item_id);
+
+        Item updated_item = new Item(name_str, dateCreater_str, description_str, longtitude_str, image, item_id);
         ItemController updated_item_controller = new ItemController(updated_item);
         updated_item_controller.setDimensions(length_str, width_str, height_str);
         updated_item_controller.setStatus(status_str);
@@ -218,19 +191,19 @@ public class EditItemActivity extends AppCompatActivity implements Observer {
         // End EditItemActivity
         final Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra("user_id", user_id);
-        Toast.makeText(context, "Item saved.", Toast.LENGTH_SHORT).show();
+        Toast.dateCreateText(context, "Item saved.", Toast.LENGTH_SHORT).show();
         startActivity(intent);
     }
 
-//    public void viewBids(View view){
-//        user_list_controller.removeObserver(this);
-//        item_list_controller.removeObserver(this);
-//
-//        Intent intent = new Intent(this, ViewItemBidsActivity.class);
-//        intent.putExtra("user_id", user_id);
-//        intent.putExtra("item_id", item_controller.getId());
-//        startActivity(intent);
-//    }
+    public void viewBids(View view){
+        user_list_controller.removeObserver(this);
+        item_list_controller.removeObserver(this);
+
+        Intent intent = new Intent(this, ViewItemBidsActivity.class);
+        intent.putExtra("user_id", user_id);
+        intent.putExtra("item_id", item_controller.getId());
+        startActivity(intent);
+    }
 
     public void setAvailable(View view){
         item_controller.setStatus("Available"); // Update status
@@ -247,8 +220,8 @@ public class EditItemActivity extends AppCompatActivity implements Observer {
             item = item_list_controller.getItem(pos);
             item_controller = new ItemController(item);
 
-            title.setText(item_controller.getTitle());
-            maker.setText(item_controller.getMaker());
+            name.setText(item_controller.getname());
+            dateCreater.setText(item_controller.getdateCreater());
             description.setText(item_controller.getDescription());
             length.setText(item_controller.getLength());
             width.setText(item_controller.getWidth());
@@ -257,109 +230,77 @@ public class EditItemActivity extends AppCompatActivity implements Observer {
             status_str = item_controller.getStatus();
             status_right_tv.setText(status_str);
 
-            minimum_bid_str = item_controller.getMinBid().toString();
-            minimum_bid.setText(minimum_bid_str);
+            longtitude_str = item_controller.getMinBid().toString();
+            longtitude.setText(longtitude_str);
 
-//            image = item_controller.getImage();
-//            if (image != null) {
-//                photo.setImageBitmap(image);
-//            } else {
-//                photo.setImageResource(android.R.drawable.ic_menu_gallery);
-//            }
-            images = item_controller.getImages();
-
-            int i=0;
-            if(images != null){
-            for(Bitmap image : images){
-                System.out.println("get images");
-                if(i<2) {
-                    photos.get(i).setImageBitmap(image);
-                    i++;
-                }
-                }
+            image = item_controller.getImage();
+            if (image != null) {
+                photo.setImageBitmap(image);
+            } else {
+                photo.setImageResource(android.R.drawable.ic_menu_gallery);
             }
-//            if(images.get(0)!=null)
-//                photos.get(0).setImageBitmap(images.get(0));
-//            if(images.get(1)!=null)
-//                photos.get(1).setImageBitmap(images.get(1));
 
             // AVAILABLE
-            System.out.println("Testing in EditItemAc." + LoginActivity.getName());
-            String name = LoginActivity.getName();
-            User user = user_list_controller.getUserByUsername(name);
-            boolean admin = user.getAdmin();
-            if(!admin){
-                title.setEnabled(false);
-                maker.setEnabled(false);
-                description.setEnabled(false);
-                length.setEnabled(false);
-                width.setEnabled(false);
-                height.setEnabled(false);
-                minimum_bid.setEnabled(false);
-                delete_button.setVisibility(View.GONE);
-            }
-            else {
-                //if (status_str.equals("Available")) {
-                title.setEnabled(true);
-                maker.setEnabled(true);
+            if (status_str.equals("Available")){
+
+                name.setEnabled(true);
+                dateCreater.setEnabled(true);
                 description.setEnabled(true);
                 length.setEnabled(true);
                 width.setEnabled(true);
                 height.setEnabled(true);
-                minimum_bid.setEnabled(true);
+                longtitude.setEnabled(true);
+
+                add_image_button.setVisibility(View.VISIBLE);
+                delete_image_button.setVisibility(View.VISIBLE);
                 delete_button.setVisibility(View.VISIBLE);
+                save_button.setVisibility(View.VISIBLE);
             }
 
-            add_image_button.setVisibility(View.VISIBLE);
-            delete_image_button.setVisibility(View.VISIBLE);
-            save_button.setVisibility(View.VISIBLE);
-
             // BIDDED
-//            if (status_str.equals("Bidded")){
-//
-//                view_bids_button.setVisibility(View.VISIBLE);
-//                title.setEnabled(false);
-//                maker.setEnabled(false);
-//                description.setEnabled(false);
-//                length.setEnabled(false);
-//                width.setEnabled(false);
-//                height.setEnabled(false);
-//                minimum_bid.setEnabled(false);
-//            }
+            if (status_str.equals("Bidded")){
+
+                view_bids_button.setVisibility(View.VISIBLE);
+                name.setEnabled(false);
+                dateCreater.setEnabled(false);
+                description.setEnabled(false);
+                length.setEnabled(false);
+                width.setEnabled(false);
+                height.setEnabled(false);
+                longtitude.setEnabled(false);
+            }
 
             // BORROWED
-//            if (status_str.equals("Borrowed")){
-////            System.out.println(LoginActivity.getName());
-////                if(LoginActivity.getName() == "yongzhe"){
-//                title.setEnabled(false);
-//                maker.setEnabled(false);
-//                description.setEnabled(false);
-//                length.setEnabled(false);
-//                width.setEnabled(false);
-//                height.setEnabled(false);
-//                minimum_bid.setEnabled(false);
-//
-//                borrower_left_tv.setVisibility(View.VISIBLE);
-//                borrower_right_tv.setVisibility(View.VISIBLE);
-//                contact_info_button.setVisibility(View.VISIBLE);
-//                set_available_button.setVisibility(View.VISIBLE);
-//
-//                User borrower = item_controller.getBorrower();
-//                borrower_username_str = borrower.getUsername();
-//                borrower_right_tv.setText(borrower_username_str);
-//            }
+            if (status_str.equals("Borrowed")){
+
+                name.setEnabled(false);
+                dateCreater.setEnabled(false);
+                description.setEnabled(false);
+                length.setEnabled(false);
+                width.setEnabled(false);
+                height.setEnabled(false);
+                longtitude.setEnabled(false);
+
+                borrower_left_tv.setVisibility(View.VISIBLE);
+                borrower_right_tv.setVisibility(View.VISIBLE);
+                contact_info_button.setVisibility(View.VISIBLE);
+                set_available_button.setVisibility(View.VISIBLE);
+
+                User borrower = item_controller.getBorrower();
+                borrower_username_str = borrower.getUsername();
+                borrower_right_tv.setText(borrower_username_str);
+            }
         }
     }
 
-
     public boolean validateInput(){
-        if (title_str.equals("")) {
-            title.setError("Empty field!");
+        if (name_str.equals("")) {
+            name.setError("Empty field!");
             return false;
         }
 
-        if (maker_str.equals("")) {
-            maker.setError("Empty field!");
+        if (dateCreater_str.equals("")) {
+            dateCreater.setError("Empty field!");
             return false;
         }
 
@@ -383,13 +324,13 @@ public class EditItemActivity extends AppCompatActivity implements Observer {
             return false;
         }
 
-        if (minimum_bid_str.equals("")) {
-            minimum_bid.setError("Empty field!");
+        if (longtitude_str.equals("")) {
+            longtitude.setError("Empty field!");
             return false;
         }
 
-        if (Float.valueOf(minimum_bid_str) <= 0) {
-            minimum_bid.setError("Starting bid must be above 0!");
+        if (Float.valueOf(longtitude_str) <= 0) {
+            longtitude.setError("Starting bid must be above 0!");
             return false;
         }
 

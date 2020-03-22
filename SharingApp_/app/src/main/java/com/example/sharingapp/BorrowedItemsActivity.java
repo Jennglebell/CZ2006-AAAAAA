@@ -38,7 +38,6 @@ public class BorrowedItemsActivity extends AppCompatActivity implements Observer
 
         item_list_controller.addObserver(this);
         item_list_controller.loadItems(context);
-        item_list_controller.setItems(item_list_controller.getBorrowedItemsByUsername(username));
 
         // When an item is long clicked, this starts ViewItemActivity
         borrowed_items.setOnItemLongClickListener(new android.widget.AdapterView.OnItemLongClickListener() {

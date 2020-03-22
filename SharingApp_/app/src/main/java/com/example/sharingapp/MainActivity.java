@@ -59,11 +59,11 @@ public class MainActivity extends AppCompatActivity {
                 search_intent.putExtra("user_id", user_id);
                 startActivity(search_intent);
                 return true;
-            case R.id.borrowed_items:
-                Intent borrowed_intent = new Intent(this, BorrowedItemsActivity.class);
-                borrowed_intent.putExtra("user_id", user_id);
-                startActivity(borrowed_intent);
-                return true;
+//            case R.id.borrowed_items:
+//                Intent borrowed_intent = new Intent(this, BorrowedItemsActivity.class);
+//                borrowed_intent.putExtra("user_id", user_id);
+//                startActivity(borrowed_intent);
+//                return true;
             case R.id.edit_profile:
                 Intent profile_intent = new Intent(this, EditUserActivity.class);
                 profile_intent.putExtra("user_id", user_id);

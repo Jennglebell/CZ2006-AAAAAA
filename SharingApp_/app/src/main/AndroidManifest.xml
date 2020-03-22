@@ -34,9 +34,6 @@
         <activity android:name=".EditUserActivity" />
         <activity android:name=".SearchActivity" />
         <activity android:name=".ViewItemActivity" />
-        <activity
-            android:name=".ViewItemBidsActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ViewUserActivity" />
         <activity android:name=".BorrowedItemsActivity"></activity>
     </application>

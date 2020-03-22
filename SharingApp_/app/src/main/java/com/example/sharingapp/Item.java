@@ -5,6 +5,8 @@ import android.graphics.BitmapFactory;
 import android.util.Base64;
 
 import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -21,7 +23,9 @@ public class Item extends Observable {
     private User borrower;
     private String owner_id;
     protected transient Bitmap image;
+    protected List<Bitmap> images;
     protected String image_base64;
+    protected List<String> image_base64s;
     private String id;
 
     public Item(String title, String maker, String description, String owner_id, String minimum_bid, Bitmap image, String id) {
@@ -33,7 +37,30 @@ public class Item extends Observable {
         this.status = "Available";
         this.minimum_bid = Float.valueOf(minimum_bid);
         this.borrower = null;
+        image_base64s = new ArrayList<>();
         addImage(image);
+
+        if (id == null){
+            setId();
+        } else {
+            updateId(id);
+        }
+    }
+
+    public Item(String title, String maker, String description, String owner_id, String minimum_bid, List<Bitmap> images, String id) {
+        this.title = title;
+        this.maker = maker;
+        this.description = description;
+        this.dimensions = null;
+        this.owner_id = owner_id;
+        this.status = "Available";
+        this.minimum_bid = Float.valueOf(minimum_bid);
+        this.borrower = null;
+        image_base64s = new ArrayList<>();
+        for(Bitmap image : images) {
+            if(image!=null)
+                addImage(image);
+        }
 
         if (id == null){
             setId();
@@ -144,6 +171,7 @@ public class Item extends Observable {
     }
 
     public void addImage(Bitmap new_image){
+
         if (new_image != null) {
             image = new_image;
             ByteArrayOutputStream byteArrayBitmapStream = new ByteArrayOutputStream();
@@ -151,6 +179,8 @@ public class Item extends Observable {
 
             byte[] b = byteArrayBitmapStream.toByteArray();
             image_base64 = Base64.encodeToString(b, Base64.DEFAULT);
+            // if(image_base64!=null)
+            image_base64s.add(image_base64);
         }
         notifyObservers();
     }
@@ -162,6 +192,20 @@ public class Item extends Observable {
             notifyObservers();
         }
         return image;
+    }
+
+    public List<Bitmap> getImages(){
+        images = new ArrayList<>();
+        if (image_base64s != null) {
+            for(String image_base64 : image_base64s) {
+                byte[] decodeString = Base64.decode(image_base64, Base64.DEFAULT);
+                image = BitmapFactory.decodeByteArray(decodeString, 0, decodeString.length);
+                if(image!=null)
+                    images.add(image);
+                notifyObservers();
+            }
+        }
+        return images;
     }
 }
 

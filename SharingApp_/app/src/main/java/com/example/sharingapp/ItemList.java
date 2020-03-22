@@ -97,18 +97,7 @@ public class ItemList extends Observable {
         return selected_items;
     }
 
-    // Used by BorrowedItemsActivity
-    public ArrayList<Item> getBorrowedItemsByUsername(String username) {
-        ArrayList<Item> selected_items = new ArrayList<>();
-        for (Item i: items) {
-            if (i != null && i.getBorrower() != null) {
-                if (i.getBorrowerUsername().equals(username)) {
-                    selected_items.add(i);
-                }
-            }
-        }
-        return selected_items;
-    }
+
 
     public Item getItemById(String id){
         for (Item i: items) {
@@ -166,13 +155,13 @@ public class ItemList extends Observable {
 //        }
 //        return active_borrowers;
 //    }
-//    public ArrayList<Item> filterItemsByStatus(String status){
-//        ArrayList<Item> selected_items = new ArrayList<>();
-//        for (Item i: items ) {
-//            if (i.getStatus().equals(status)) {
-//                selected_items.add(i);
-//            }
-//        }
-//        return selected_items;
-//    }
+    public ArrayList<Item> filterItemsByStatus(String status){
+        ArrayList<Item> selected_items = new ArrayList<>();
+        for (Item i: items ) {
+            if (i.getStatus().equals(status)) {
+                selected_items.add(i);
+            }
+        }
+        return selected_items;
+    }
 }

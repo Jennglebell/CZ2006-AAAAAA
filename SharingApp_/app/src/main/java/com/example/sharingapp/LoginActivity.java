@@ -14,15 +14,16 @@ import android.widget.Toast;
  * Users must log into the app
  */
 public class LoginActivity extends AppCompatActivity {
-
+    protected static boolean admin= false;
+    private static String username_str;
     private UserList user_list = new UserList();
     private UserListController user_list_controller = new UserListController(user_list);
-
+    private static User user;
     private EditText username;
     private EditText email;
     private TextView email_tv;
     private Context context;
-    private String username_str;
+    //private String username_str;
     private String email_str;
 
     @Override
@@ -40,6 +41,16 @@ public class LoginActivity extends AppCompatActivity {
         context = getApplicationContext();
         user_list_controller.loadUsers(context);
     }
+
+    public void admin(View view){
+        admin = true;
+    }
+
+    public  boolean isAdmin(){
+        return admin;
+    }
+
+
 
     public void login(View view) {
         username_str = username.getText().toString();
@@ -59,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
                 return;
             }
 
-            User user = new User(username_str, email_str, null);
+            user = new User(username_str, email_str, null);
             UserController user_controller = new UserController(user);
             user_id = user_controller.getId();
 
@@ -74,11 +85,29 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         // Either way, start MainActivity
+        System.out.println("testing:" + username_str);
+        user = user_list_controller.getUserByUserId(user_id);
+        if(admin)
+            user.setAdmin(true);
+        if(user.getAdmin())
+            System.out.println("is admin:");
+
+
         final Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra("user_id", user_id);
         Toast.makeText(context, "Welcome!", Toast.LENGTH_SHORT).show();
         startActivity(intent);
     }
+
+
+    public static String getName(){
+        return username_str;
+    }
+
+    public static User getUser(){
+        return user;
+    }
+
 
     public boolean validateInput(){
         if (email_str.equals("")) {

@@ -2,6 +2,8 @@ package com.example.sharingapp;
 
 import android.graphics.Bitmap;
 
+import java.util.List;
+
 /**
  * ItemController is responsible for all communication between views and Item model
  */
@@ -86,13 +88,6 @@ public class ItemController {
         return item.getStatus();
     }
 
-    public void setBorrower(User borrower) {
-        item.setBorrower(borrower);
-    }
-
-    public User getBorrower() {
-        return item.getBorrower();
-    }
 
     public void addImage(Bitmap new_image){
         item.addImage(new_image);
@@ -100,6 +95,10 @@ public class ItemController {
 
     public Bitmap getImage(){
         return item.getImage();
+    }
+
+    public List<Bitmap> getImages(){
+        return item.getImages();
     }
 
     public Item getItem() { return this.item; }
