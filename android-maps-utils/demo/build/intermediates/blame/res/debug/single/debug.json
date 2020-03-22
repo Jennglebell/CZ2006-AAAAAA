@@ -1,0 +1,122 @@
+[
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\build\\intermediates\\res\\merged\\debug\\raw_medicare.json.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\src\\main\\res\\raw\\medicare.json"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\build\\intermediates\\res\\merged\\debug\\raw_police.json.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\src\\main\\res\\raw\\police.json"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\build\\intermediates\\res\\merged\\debug\\layout_heatmaps_demo.xml.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\src\\main\\res\\layout\\heatmaps_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\build\\intermediates\\res\\merged\\debug\\raw_south_london_square_geojson.json.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\src\\main\\res\\raw\\south_london_square_geojson.json"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\build\\intermediates\\res\\merged\\debug\\raw_earthquakes_with_usa.json.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\src\\main\\res\\raw\\earthquakes_with_usa.json"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi_stefan.jpg.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\src\\main\\res\\drawable-nodpi\\stefan.jpg"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi_turtle.jpg.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\src\\main\\res\\drawable-nodpi\\turtle.jpg"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi_mechanic.jpg.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\src\\main\\res\\drawable-nodpi\\mechanic.jpg"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi_ruth.jpg.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\src\\main\\res\\drawable-nodpi\\ruth.jpg"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi_gran.jpg.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\src\\main\\res\\drawable-nodpi\\gran.jpg"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\build\\intermediates\\res\\merged\\debug\\layout_multi_profile.xml.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\src\\main\\res\\layout\\multi_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi_yeats.jpg.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\src\\main\\res\\drawable-nodpi\\yeats.jpg"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\build\\intermediates\\res\\merged\\debug\\layout_main.xml.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\src\\main\\res\\layout\\main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\build\\intermediates\\res\\merged\\debug\\raw_earthquakes.json.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\src\\main\\res\\raw\\earthquakes.json"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\src\\main\\res\\drawable-nodpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\build\\intermediates\\res\\merged\\debug\\raw_south_london_line_kml.kml.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\src\\main\\res\\raw\\south_london_line_kml.kml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\build\\intermediates\\res\\merged\\debug\\layout_distance_demo.xml.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\src\\main\\res\\layout\\distance_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\build\\intermediates\\res\\merged\\debug\\layout_geojson_demo.xml.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\src\\main\\res\\layout\\geojson_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\build\\intermediates\\res\\merged\\debug\\layout_kml_demo.xml.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\src\\main\\res\\layout\\kml_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\build\\intermediates\\res\\merged\\debug\\layout_map.xml.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\src\\main\\res\\layout\\map.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi_walter.jpg.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\src\\main\\res\\drawable-nodpi\\walter.jpg"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\build\\intermediates\\res\\merged\\debug\\raw_south_london_line_geojson.json.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\src\\main\\res\\raw\\south_london_line_geojson.json"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\build\\intermediates\\res\\merged\\debug\\raw_usa.json.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\src\\main\\res\\raw\\usa.json"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\build\\intermediates\\res\\merged\\debug\\raw_kmlgeometrytest.kml.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\src\\main\\res\\raw\\kmlgeometrytest.kml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\build\\intermediates\\res\\merged\\debug\\raw_campus.kml.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\src\\main\\res\\raw\\campus.kml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\build\\intermediates\\res\\merged\\debug\\layout_places_demo.xml.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\src\\main\\res\\layout\\places_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi_teacher.jpg.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\src\\main\\res\\drawable-nodpi\\teacher.jpg"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\build\\intermediates\\res\\merged\\debug\\raw_radar_search.json.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\src\\main\\res\\raw\\radar_search.json"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi_john.jpg.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\src\\main\\res\\drawable-nodpi\\john.jpg"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\build\\intermediates\\res\\merged\\debug\\raw_south_london_square_kml.kml.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\android-maps-utils\\demo\\src\\main\\res\\raw\\south_london_square_kml.kml"
+    }
+]
