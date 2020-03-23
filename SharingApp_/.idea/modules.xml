@@ -5,7 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/SharingApp.iml" filepath="$PROJECT_DIR$/SharingApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/SharingApp_.iml" filepath="$PROJECT_DIR$/SharingApp_.iml" group="SharingApp_" />
       <module fileurl="file://$PROJECT_DIR$/app/SharingApp_-app.iml" filepath="$PROJECT_DIR$/app/SharingApp_-app.iml" group="SharingApp_/app" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="SharingApp_/app" />
     </modules>
   </component>
 </project>

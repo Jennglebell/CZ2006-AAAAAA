@@ -41,5 +41,6 @@
 
     <string name="title_activity_main">Sharing App</string>
     <string name="title_activity_login">Sign in</string>
+    <string name="geojson_url">https://geo.data.gov.sg/nparks-facilities/2019/12/11/geojson/nparks-facilities.geojson</string>
 
 </resources>
