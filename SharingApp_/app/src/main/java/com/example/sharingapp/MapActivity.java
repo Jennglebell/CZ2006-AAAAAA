@@ -190,16 +190,16 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 		new DownloadGeoJsonFile().execute(getString(R.string.geojson_url));
 	}
 	
-//	private void retrieveFileFromResource() {
-//		try {
-//			GeoJsonLayer layer = new GeoJsonLayer(mMap, R.raw.earthquakes_with_usa, this);
-//			addGeoJsonLayerToMap(layer);
-//		} catch (IOException e) {
-//			Log.e(mLogTag, "GeoJSON file could not be read");
-//		} catch (JSONException e) {
-//			Log.e(mLogTag, "GeoJSON file could not be converted to a JSONObject");
-//		}
-//	}
+	private void retrieveFileFromResource() {
+		try {
+			GeoJsonLayer layer = new GeoJsonLayer(mMap, R.raw.park_facilities_geojson, this);
+			addGeoJsonLayerToMap(layer);
+		} catch (IOException e) {
+			Log.e(mLogTag, "GeoJSON file could not be read");
+		} catch (JSONException e) {
+			Log.e(mLogTag, "GeoJSON file could not be converted to a JSONObject");
+		}
+	}
 	
 	/**
 	 * Adds a point style to all features to change the color of the marker based on its magnitude
