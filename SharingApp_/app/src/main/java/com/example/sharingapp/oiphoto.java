@@ -3,6 +3,7 @@ package com.example.sharingapp;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
+import android.view.View;
 
 import java.io.ByteArrayOutputStream;
 
@@ -46,4 +47,5 @@ public class oiphoto extends Observable {
     public void setOwner(String owner) {
         this.owner = owner;
     }
+
 }

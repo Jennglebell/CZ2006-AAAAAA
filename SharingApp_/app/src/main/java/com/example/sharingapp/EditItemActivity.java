@@ -122,7 +122,7 @@ public class EditItemActivity extends AppCompatActivity implements Observer {
         if (request_code == REQUEST_CODE && result_code == RESULT_OK){
             Bundle extras = intent.getExtras();
             image = (Bitmap) extras.get("data");
-            oi_photos_list.add(new oiphoto(image));
+            oi_photos_list.add(new oiphoto(image, LoginActivity.getName()));
             images.add(image);
         }
         Toast.makeText(context, "Photo added.", Toast.LENGTH_SHORT).show();
@@ -173,7 +173,8 @@ public class EditItemActivity extends AppCompatActivity implements Observer {
 
         String item_id = item_controller.getId(); // Reuse the item id
        // Item updated_item = new Item(hashtag_str, name_str, description_str, image, id_str);
-        Item updated_item = new Item(hashtag_str, name_str, description_str, images, id_str);
+        //Item updated_item = new Item(hashtag_str, name_str, description_str, images, id_str);
+        Item updated_item = new Item(hashtag_str, name_str, description_str, oi_photos_list, id_str);
         ItemController updated_item_controller = new ItemController(updated_item);
         updated_item_controller.setLocation(longti_str, lati_str);
      //   updated_item_controller.setStatus(status_str);
@@ -213,7 +214,8 @@ public class EditItemActivity extends AppCompatActivity implements Observer {
             if (images != null) {
                 for (Bitmap image : images) {
                     System.out.println("get images size" + images.size());
-                    oi_photos_list.add(new oiphoto(image));
+                    oiphoto oiphoto_ = new oiphoto(image);
+                    oi_photos_list.add(oiphoto_);
                 }
 
 
@@ -226,6 +228,13 @@ public class EditItemActivity extends AppCompatActivity implements Observer {
                     System.out.println(username + "is admin");
                 }
                 if (!admin) {
+//                    for(oiphoto oiphoto_ : oi_photos_list){
+//                        if(oiphoto_.getOwner().equals(LoginActivity.getUser())){
+//                          //  oiphoto.isOwner = true;
+//                            //oiphoto_.getdelete_image_button.setVisibility(View.VISIBLE);
+//                        }
+//                    }
+
                     name.setEnabled(false);
                     hashtag.setEnabled(false);
                     description.setEnabled(false);
@@ -234,18 +243,22 @@ public class EditItemActivity extends AppCompatActivity implements Observer {
                     delete_button.setVisibility(View.INVISIBLE);
 //                delete_button.setVisibility(View.GONE);
                 } else {
+
                     //if (status_str.equals("Available")) {
                     name.setEnabled(true);
+                    hashtag.setVisibility(View.VISIBLE);
                     hashtag.setEnabled(true);
                     description.setEnabled(true);
+                    lati.setVisibility(View.VISIBLE);
                     lati.setEnabled(true);
+                    longti.setVisibility(View.VISIBLE);
                     longti.setEnabled(true);
                     delete_button.setVisibility(View.VISIBLE);
                     //delete_button.setVisibility(View.VISIBLE);
                 }
 
                 add_image_button.setVisibility(View.VISIBLE);
-                delete_image_button.setVisibility(View.VISIBLE);
+               // delete_image_button.setVisibility(View.VISIBLE);
                 save_button.setVisibility(View.VISIBLE);
 
             }
@@ -268,12 +281,12 @@ public class EditItemActivity extends AppCompatActivity implements Observer {
 
     private List<oiphoto> getPhotoData() {
         List<oiphoto> oiphotolist = new ArrayList<>();
-        oiphotolist.add(new oiphoto( "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTL_ePmnP8RJ0nxNKy4cMbe0wdroWNNZyiFO9fK9dPTjjEUkauz"));
-        oiphotolist.add(new oiphoto("https://s3-ap-southeast-1.amazonaws.com/c3a-java-files/73c8d717302fbb8097a6e96c328f264e.jpg"));
-        //oiphotolist.add(new oiphoto("https://www.nparks.gov.sg/-/media/nparks-real-content/gardens-parks-and-nature/parks-and-nature-reserve/labrador-nature-reserve/rsz_bbq_pits.jpg?h=149&la=en&mw=237&w=237&hash=49CCF327B01E02A10114038FE6FBD977B8BF4052"));
-        oiphotolist.add(new oiphoto("https://upload.wikimedia.org/wikipedia/commons/e/eb/Ash_Tree_-_geograph.org.uk_-_590710.jpg"));
-        oiphotolist.add(new oiphoto("https://s3-ap-southeast-1.amazonaws.com/c3a-java-files/73c8d717302fbb8097a6e96c328f264e.jpg"));
-        oiphotolist.add(new oiphoto("https://upload.wikimedia.org/wikipedia/commons/e/eb/Ash_Tree_-_geograph.org.uk_-_590710.jpg"));
+//        oiphotolist.add(new oiphoto( "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTL_ePmnP8RJ0nxNKy4cMbe0wdroWNNZyiFO9fK9dPTjjEUkauz"));
+//        oiphotolist.add(new oiphoto("https://s3-ap-southeast-1.amazonaws.com/c3a-java-files/73c8d717302fbb8097a6e96c328f264e.jpg"));
+//        //oiphotolist.add(new oiphoto("https://www.nparks.gov.sg/-/media/nparks-real-content/gardens-parks-and-nature/parks-and-nature-reserve/labrador-nature-reserve/rsz_bbq_pits.jpg?h=149&la=en&mw=237&w=237&hash=49CCF327B01E02A10114038FE6FBD977B8BF4052"));
+//        oiphotolist.add(new oiphoto("https://upload.wikimedia.org/wikipedia/commons/e/eb/Ash_Tree_-_geograph.org.uk_-_590710.jpg"));
+//        oiphotolist.add(new oiphoto("https://s3-ap-southeast-1.amazonaws.com/c3a-java-files/73c8d717302fbb8097a6e96c328f264e.jpg"));
+//        oiphotolist.add(new oiphoto("https://upload.wikimedia.org/wikipedia/commons/e/eb/Ash_Tree_-_geograph.org.uk_-_590710.jpg"));
 
         //GET ALL OI DATA HERE. above is dummy data. add to the oilist.
         return oiphotolist;

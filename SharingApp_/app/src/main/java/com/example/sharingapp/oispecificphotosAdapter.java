@@ -36,10 +36,16 @@ public class oispecificphotosAdapter extends RecyclerView.Adapter<oispecificphot
     }
 
     public void onBindViewHolder(final oispecificphotosViewHolder viewHolder, final int position) {
-
         RequestOptions requestOptions = new RequestOptions()
                 .placeholder(R.drawable.ic_launcher_background);
         Glide.with(context).asBitmap().load(oiphotolist.get(position).imgurl).apply(requestOptions).into(viewHolder.oiphotosimage);
+         System.out.println("Photo owner:"+oiphotolist.get(position).getOwner());
+         if(oiphotolist.get(position).getOwner()!=null) {
+             if (oiphotolist.get(position).getOwner() == LoginActivity.getName()) {
+                 viewHolder.deleteimageButton.setVisibility(View.VISIBLE);
+             }
+         }
+
     }
 
     public int getItemCount() {

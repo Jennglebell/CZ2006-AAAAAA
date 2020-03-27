@@ -51,8 +51,8 @@
         <activity android:name=".BorrowedItemsActivity"></activity>
         <activity android:name=".MapDisplay" />
 
-<!--        <meta-data android:name="com.google.android.geo.API_KEY"-->
-<!--            android:value="AIzaSyAt1CyzCXQrhQyem0SIfgVEaSKIw8Q2UF0"/>-->
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAt1CyzCXQrhQyem0SIfgVEaSKIw8Q2UF0"/>
     </application>
 
 </manifest>

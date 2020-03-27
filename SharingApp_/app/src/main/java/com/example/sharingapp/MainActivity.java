@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void displayMap(View view){
-//        Intent intent = new Intent(this, MapDisplay.class);
-//        startActivity(intent);
+        Intent intent = new Intent(this, MapDisplay.class);
+        startActivity(intent);
     }
 }

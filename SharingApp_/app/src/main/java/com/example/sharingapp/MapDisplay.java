@@ -15,8 +15,13 @@
  */
 
 package com.example.sharingapp;
-
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -32,13 +37,19 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.Circle;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.maps.android.collections.MarkerManager;
 import com.google.maps.android.data.Feature;
 import com.google.maps.android.data.geojson.GeoJsonFeature;
 import com.google.maps.android.data.geojson.GeoJsonLayer;
@@ -53,7 +64,23 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 
-public class MapDisplay extends FragmentActivity implements OnMapReadyCallback {
+import static com.google.android.gms.maps.GoogleMap.*;
+
+public class MapDisplay extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
+	private static final LatLng JurongPark = new LatLng(1.338250, 103.707793);
+	private static final LatLng testMarkerPos = new LatLng(1.337904, 103.707866);
+	private SupportMapFragment mapFragment;
+
+	private BitmapDescriptor bitmapDescriptorFromVector(Context context, int vectorResId){
+		Drawable vectorDrawable= ContextCompat.getDrawable(context, vectorResId);
+		vectorDrawable.setBounds(0, 0, vectorDrawable.getIntrinsicWidth(), vectorDrawable.getIntrinsicHeight());
+		Bitmap bitmap=Bitmap.createBitmap(vectorDrawable.getIntrinsicWidth(), vectorDrawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+		Canvas canvas=new Canvas(bitmap);
+		vectorDrawable.draw(canvas);
+		return BitmapDescriptorFactory.fromBitmap(bitmap);
+	}
+
+
 	private GoogleMap mMap;
 	
 	// Checks if location permission granted
@@ -61,7 +88,7 @@ public class MapDisplay extends FragmentActivity implements OnMapReadyCallback {
 	private boolean mLocationPermissionGranted;
 	
 	// Default zoom of 15
-	private static final int DEFAULT_ZOOM = 15;
+	private static final int DEFAULT_ZOOM = 100;
 	
 	private final static String mLogTag = "MapDisplay";
 	
@@ -83,10 +110,7 @@ public class MapDisplay extends FragmentActivity implements OnMapReadyCallback {
 //        }
 //    }
 	
-	protected int getLayoutId() {
-		return R.layout.activity_map;
-	}
-	
+
 	private static final String TAG = MapDisplay.class.getSimpleName();
 	
 	// A default location (NTU) and default zoom to use when location permission is
@@ -100,32 +124,77 @@ public class MapDisplay extends FragmentActivity implements OnMapReadyCallback {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(getLayoutId());
+        setContentView(R.layout.activity_map);
         setUpMap();
+
     }
-	
+
 	@Override
 	public void onMapReady(GoogleMap map) {
-		if (mMap != null) {
-			return;
-		}
+//		if (mMap != null) {
+//			return;
+//		}
 		mMap = map;
-		
+		System.out.println("Hello");
 		mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
-		
+
 		getLocationPermission();
 		updateLocationUI();
 		getDeviceLocation(mLocationPermissionGranted, mFusedLocationProviderClient);
-		
-		
+
+
 		// Download the GeoJSON file.
 		retrieveFileFromUrl();
 		// Alternate approach of loading a local GeoJSON file.
 		//retrieveFileFromResource();
+
+		Marker mJurongPark = mMap.addMarker(new MarkerOptions()
+				.position(JurongPark)
+				.title("Jurong Central Park")
+				);
+		Marker testMarker = mMap.addMarker(new MarkerOptions()
+				.position(testMarkerPos)
+				.title("marker test")
+				.snippet("Population: 4,137,400"));
+		mMap.moveCamera(CameraUpdateFactory.newLatLng(JurongPark));
+		mMap.addCircle(
+				new CircleOptions()
+						.center(JurongPark)
+						.radius(100.0)
+						.strokeWidth(1f)
+						.strokeColor(Color.rgb(51, 153, 255))
+						.fillColor(Color.argb(70, 102, 178, 255))
+		);
+		mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+			@Override
+			public boolean onMarkerClick(Marker marker) {
+				System.out.println("sadasdasdasd");
+				Intent intent = new Intent(MapDisplay.this, EditItemActivity.class);
+				startActivity(intent);
+				return true;
+			}
+		});
 	}
 
-    private void setUpMap() {
-        ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMapAsync(this);
+
+//	@Override
+//	public void onInfoWindowClick(Marker marker) {
+////		mMap.setOnInfoWindowClickListener(this);
+//
+//
+////		MarkerManager.Collection collection = mAllObjects.get(marker);
+////		if (collection != null && collection.mInfoWindowClickListener != null) {
+////			collection.mInfoWindowClickListener.onInfoWindowClick(marker);
+////		}
+//	}
+
+	@Override
+	public boolean onMarkerClick(Marker marker) {
+		return true;
+	}
+
+    private void setUpMap(){
+        ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mMap)).getMapAsync(this);
     }
 	
 	private void getLocationPermission() {
@@ -272,7 +341,7 @@ public class MapDisplay extends FragmentActivity implements OnMapReadyCallback {
 				// Close the stream
 				reader.close();
 				stream.close();
-				
+
 				return new GeoJsonLayer(mMap, new JSONObject(result.toString()));
 			} catch (IOException e) {
 				Log.e(mLogTag, "GeoJSON file could not be read");

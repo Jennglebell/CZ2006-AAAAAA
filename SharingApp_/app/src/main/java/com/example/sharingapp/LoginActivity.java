@@ -63,7 +63,6 @@ public class LoginActivity extends AppCompatActivity {
         return user;
     }
 
-
     public void login(View view) {
         username_str = username.getText().toString();
         email_str = email.getText().toString();
