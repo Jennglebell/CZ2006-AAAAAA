@@ -236,7 +236,6 @@ public class EditItemActivity extends AppCompatActivity implements Observer, Vie
 
          //   status_str = item_controller.getStatus();
             images = item_controller.getImages();
-<<<<<<< HEAD:ParkVibe/app/src/main/java/com/example/sharingapp/EditItemActivity.java
             List<oiphoto> oi_photos_list_ = item_controller.getOiphotos();
 //            if (images != null) {
 //                for (Bitmap image : images) {
@@ -252,13 +251,6 @@ public class EditItemActivity extends AppCompatActivity implements Observer, Vie
                         System.out.println("Owner has:" + oiphoto_.getOwner());
                         oi_photos_list.add(oiphoto_);
                     }
-=======
-            if (images != null) {
-                for (Bitmap image : images) {
-                    System.out.println("get images size" + images.size());
-                    oiphoto oiphoto_ = new oiphoto(image);
-                    oi_photos_list.add(oiphoto_);
->>>>>>> e1396f3bd08f7218e2d6c967d7f04c4b7f3add8f:SharingApp_/app/src/main/java/com/example/sharingapp/EditItemActivity.java
                 }
 
 
@@ -301,7 +293,7 @@ public class EditItemActivity extends AppCompatActivity implements Observer, Vie
                 }
 
                 add_image_button.setVisibility(View.VISIBLE);
-               // delete_image_button.setVisibility(View.VISIBLE);
+                delete_image_button.setVisibility(View.VISIBLE);
                 save_button.setVisibility(View.VISIBLE);
 
             }

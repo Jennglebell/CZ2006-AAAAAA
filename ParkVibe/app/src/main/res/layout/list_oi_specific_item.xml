@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativelayout"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:layout_margin="15dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/oilistspecificcard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="8dp"
+        android:elevation="2dp"
+        android:layout_centerHorizontal="true"
+        android:outlineAmbientShadowColor="#000">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/oi_specific_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="OI Name"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"/>
+
+            <TextView
+                android:id="@+id/oi_specific_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="30m away"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"/>
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/oi_specific_name"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#CDCDCD" />
+
+            <TextView
+                android:id="@+id/locationtext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/oi_specific_name"
+                android:text="Location: "
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="15dp"/>
+
+            <TextView
+                android:id="@+id/oi_specific_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/oi_specific_name"
+                android:layout_marginTop="25dp"
+                android:layout_toRightOf="@id/locationtext"
+                android:text="xxxxxxxxxx"/>
+            
+            <TextView
+                android:id="@+id/photostext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Photos: "
+                android:layout_below="@+id/locationtext"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp" />
+
+            <ImageView
+                android:id="@+id/oi_specific_image1"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/ic_launcher_background"
+                android:layout_below="@id/locationtext"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@id/photostext"
+                android:layout_marginLeft="15dp"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:id="@+id/oi_specific_image2"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/ic_launcher_background"
+                android:layout_below="@id/locationtext"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@id/oi_specific_image1"
+                android:layout_marginLeft="15dp"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:id="@+id/oi_specific_image3"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/ic_launcher_background"
+                android:layout_below="@id/locationtext"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@id/oi_specific_image2"
+                android:layout_marginLeft="15dp"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:id="@+id/oi_specific_image4"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/ic_launcher_background"
+                android:layout_below="@id/locationtext"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@id/oi_specific_image3"
+                android:layout_marginLeft="15dp"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:id="@+id/oi_specific_image5"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/ic_launcher_background"
+                android:layout_below="@id/locationtext"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@id/oi_specific_image4"
+                android:layout_marginLeft="15dp"
+                android:scaleType="centerCrop" />
+
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

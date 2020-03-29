@@ -28,11 +28,7 @@
                 app:srcCompat="@drawable/ic_launcher_background" />
 
             <ImageButton
-<<<<<<< HEAD:ParkVibe/app/src/main/res/layout/specific_oi_photos_item.xml
                 android:id="@+id/deleteImage"
-=======
-                android:id="@+id/deleteImageButton"
->>>>>>> e1396f3bd08f7218e2d6c967d7f04c4b7f3add8f:SharingApp_/app/src/main/res/layout/specific_oi_photos_item.xml
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignTop="@+id/oiphotos_specificphoto"

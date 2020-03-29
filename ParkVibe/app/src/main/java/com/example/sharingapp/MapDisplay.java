@@ -21,10 +21,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
-<<<<<<< HEAD:ParkVibe/app/src/main/java/com/example/sharingapp/MapDisplay.java
 import android.graphics.Point;
-=======
->>>>>>> e1396f3bd08f7218e2d6c967d7f04c4b7f3add8f:SharingApp_/app/src/main/java/com/example/sharingapp/MapDisplay.java
 import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.os.AsyncTask;
@@ -93,26 +90,6 @@ public class MapDisplay extends FragmentActivity implements OnMapReadyCallback, 
 	}
 
 
-<<<<<<< HEAD:ParkVibe/app/src/main/java/com/example/sharingapp/MapDisplay.java
-=======
-import static com.google.android.gms.maps.GoogleMap.*;
-
-public class MapDisplay extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
-	private static final LatLng JurongPark = new LatLng(1.338250, 103.707793);
-	private static final LatLng testMarkerPos = new LatLng(1.337904, 103.707866);
-	private SupportMapFragment mapFragment;
-
-	private BitmapDescriptor bitmapDescriptorFromVector(Context context, int vectorResId){
-		Drawable vectorDrawable= ContextCompat.getDrawable(context, vectorResId);
-		vectorDrawable.setBounds(0, 0, vectorDrawable.getIntrinsicWidth(), vectorDrawable.getIntrinsicHeight());
-		Bitmap bitmap=Bitmap.createBitmap(vectorDrawable.getIntrinsicWidth(), vectorDrawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-		Canvas canvas=new Canvas(bitmap);
-		vectorDrawable.draw(canvas);
-		return BitmapDescriptorFactory.fromBitmap(bitmap);
-	}
-
-
->>>>>>> e1396f3bd08f7218e2d6c967d7f04c4b7f3add8f:SharingApp_/app/src/main/java/com/example/sharingapp/MapDisplay.java
 	private GoogleMap mMap;
 	private ItemList item_list = new ItemList();
 	private ItemListController item_list_controller = new ItemListController(item_list);
@@ -160,7 +137,6 @@ public class MapDisplay extends FragmentActivity implements OnMapReadyCallback, 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
         setUpMap();
-<<<<<<< HEAD:ParkVibe/app/src/main/java/com/example/sharingapp/MapDisplay.java
 		context = getApplicationContext();
 		item_list_controller.loadItems(context);
 
@@ -170,11 +146,6 @@ public class MapDisplay extends FragmentActivity implements OnMapReadyCallback, 
 //
 //	}
 
-=======
-
-    }
-
->>>>>>> e1396f3bd08f7218e2d6c967d7f04c4b7f3add8f:SharingApp_/app/src/main/java/com/example/sharingapp/MapDisplay.java
 	@Override
 	public void onMapReady(GoogleMap map) {
 //		if (mMap != null) {
@@ -192,11 +163,7 @@ public class MapDisplay extends FragmentActivity implements OnMapReadyCallback, 
 		// Download the GeoJSON file.
 	//	retrieveFileFromUrl();
 		// Alternate approach of loading a local GeoJSON file.
-<<<<<<< HEAD:ParkVibe/app/src/main/java/com/example/sharingapp/MapDisplay.java
 		retrieveFileFromResource();
-=======
-		//retrieveFileFromResource();
->>>>>>> e1396f3bd08f7218e2d6c967d7f04c4b7f3add8f:SharingApp_/app/src/main/java/com/example/sharingapp/MapDisplay.java
 
 		Marker mJurongPark = mMap.addMarker(new MarkerOptions()
 				.position(JurongPark)
@@ -224,7 +191,6 @@ public class MapDisplay extends FragmentActivity implements OnMapReadyCallback, 
 				return true;
 			}
 		});
-<<<<<<< HEAD:ParkVibe/app/src/main/java/com/example/sharingapp/MapDisplay.java
 	}
 
 
@@ -244,27 +210,6 @@ public class MapDisplay extends FragmentActivity implements OnMapReadyCallback, 
 		return true;
 	}
 
-=======
-	}
-
-
-//	@Override
-//	public void onInfoWindowClick(Marker marker) {
-////		mMap.setOnInfoWindowClickListener(this);
-//
-//
-////		MarkerManager.Collection collection = mAllObjects.get(marker);
-////		if (collection != null && collection.mInfoWindowClickListener != null) {
-////			collection.mInfoWindowClickListener.onInfoWindowClick(marker);
-////		}
-//	}
-
-	@Override
-	public boolean onMarkerClick(Marker marker) {
-		return true;
-	}
-
->>>>>>> e1396f3bd08f7218e2d6c967d7f04c4b7f3add8f:SharingApp_/app/src/main/java/com/example/sharingapp/MapDisplay.java
     private void setUpMap(){
         ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mMap)).getMapAsync(this);
     }
@@ -440,7 +385,6 @@ public class MapDisplay extends FragmentActivity implements OnMapReadyCallback, 
 		}
 	}
 	
-<<<<<<< HEAD:ParkVibe/app/src/main/java/com/example/sharingapp/MapDisplay.java
 //	private class DownloadGeoJsonFile extends AsyncTask<String, Void, GeoJsonLayer> {
 //
 //		@Override
@@ -471,38 +415,6 @@ public class MapDisplay extends FragmentActivity implements OnMapReadyCallback, 
 //			}
 //			return null;
 //		}
-=======
-	private class DownloadGeoJsonFile extends AsyncTask<String, Void, GeoJsonLayer> {
-		
-		@Override
-		protected GeoJsonLayer doInBackground(String... params) {
-			try {
-				// Open a stream from the URL
-				InputStream stream = new URL(params[0]).openStream();
-//                InputStream stream = new FileInputStream(params[0]);
-				
-				String line;
-				StringBuilder result = new StringBuilder();
-				BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
-				
-				while ((line = reader.readLine()) != null) {
-					// Read and save each line of the stream
-					result.append(line);
-				}
-				
-				// Close the stream
-				reader.close();
-				stream.close();
-
-				return new GeoJsonLayer(mMap, new JSONObject(result.toString()));
-			} catch (IOException e) {
-				Log.e(mLogTag, "GeoJSON file could not be read");
-			} catch (JSONException e) {
-				Log.e(mLogTag, "GeoJSON file could not be converted to a JSONObject");
-			}
-			return null;
-		}
->>>>>>> e1396f3bd08f7218e2d6c967d7f04c4b7f3add8f:SharingApp_/app/src/main/java/com/example/sharingapp/MapDisplay.java
 		
 //		@Override
 //		protected void onPostExecute(GeoJsonLayer layer) {
