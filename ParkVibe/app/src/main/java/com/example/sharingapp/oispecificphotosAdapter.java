@@ -21,6 +21,7 @@ public class oispecificphotosAdapter extends RecyclerView.Adapter<oispecificphot
     List<oiphoto> oiphotolist = Collections.emptyList();
     Context context;
     public ImageView imgViewRemoveIcon;
+    int i ;
 
     public oispecificphotosAdapter(List<oiphoto> oiphotolist, Context context) {
         this.oiphotolist = oiphotolist;
@@ -41,8 +42,9 @@ public class oispecificphotosAdapter extends RecyclerView.Adapter<oispecificphot
         RequestOptions requestOptions = new RequestOptions()
                 .placeholder(R.drawable.ic_launcher_background);
         Glide.with(context).asBitmap().load(oiphotolist.get(position).imgurl).apply(requestOptions).into(viewHolder.oiphotosimage);
-         System.out.println("Photo owner:"+oiphotolist.get(position).getOwner());
-        System.out.println("user:"+LoginActivity.getName());
+
+//         System.out.println("Photo owner:"+oiphotolist.get(position).getOwner());
+//        System.out.println("user:"+LoginActivity.getName());
         viewHolder.deleteimage.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,17 +56,20 @@ public class oispecificphotosAdapter extends RecyclerView.Adapter<oispecificphot
                 }
             }
         });
+        System.out.println("Position is:" + position);
+//        if(oiphotolist.get(position)!=null)
+        i = oiphotolist.get(position).getLikes();
+        viewHolder.like_num.setText(String.valueOf(i));
+        viewHolder.likeimage.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("onBindViewHolder like clicked: " + position);
+                i++;
+                viewHolder.like_num.setText(String.valueOf(i));
+                oiphotolist.get(position).setLikes(i);
+            }
+        });
     }
-
-
-    public void removeAt(int position) {
-        Intent intent = new Intent(context, MainActivity.class);
-        intent.putExtra("clicked_image_index", position);
-        notifyItemRemoved(position);
-    }
-
-
-
     public int getItemCount() {
         if(oiphotolist!=null) {
             return oiphotolist.size();

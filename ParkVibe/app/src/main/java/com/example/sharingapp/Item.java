@@ -173,7 +173,7 @@ public class Item extends Observable {
                 byte[] decodeString = Base64.decode(oiphoto_.getImage_base64(), Base64.DEFAULT);
                 image = BitmapFactory.decodeByteArray(decodeString, 0, decodeString.length);
                 if(image!=null)
-                    oiphotos.add(new oiphoto(image, oiphoto_.getOwner()));
+                    oiphotos.add(new oiphoto(image, oiphoto_.getOwner(), oiphoto_.getLikes()));
                 notifyObservers();
             }
         }

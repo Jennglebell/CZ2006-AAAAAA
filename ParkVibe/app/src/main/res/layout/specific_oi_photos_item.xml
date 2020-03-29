@@ -35,8 +35,25 @@
                 android:layout_alignRight="@+id/oiphotos_specificphoto"
                 android:onClick="delete_photo"
                 tools:srcCompat="@android:drawable/btn_dialog" />
-            <!--tools:srcCompat="@android:drawable/ic_menu_close_clear_cancel"-->
 
+            <ImageButton
+                android:id="@+id/like"
+                android:layout_width="8pt"
+                android:layout_height="8pt"
+                android:layout_alignLeft="@+id/oiphotos_specificphoto"
+                android:layout_alignBottom="@+id/oiphotos_specificphoto"
+                android:layout_marginLeft="0dp"
+                android:layout_marginBottom="0dp"
+                android:onClick="like" />
+            <!--tools:srcCompat="@android:drawable/ic_menu_close_clear_cancel"-->
+            <TextView
+                android:id="@+id/like_num"
+                android:layout_width="10pt"
+                android:layout_height="5pt"
+                android:layout_above="@+id/like"
+                android:layout_marginLeft="2dp"
+                android:layout_marginBottom="4dp"
+                />
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>

@@ -13,6 +13,9 @@ public class oiphoto extends Observable {
     protected String owner;
     String imgurl;
 
+
+    protected int likes;
+
     public oiphoto(String imgurl) {
         this.imgurl = imgurl;
     }
@@ -22,6 +25,20 @@ public class oiphoto extends Observable {
     public oiphoto(Bitmap image, String owner) {
         this.image = image;
         this.owner = owner;
+    }
+    public oiphoto(Bitmap image, String owner, int likes) {
+        this.image = image;
+        this.owner = owner;
+        this.likes = likes;
+    }
+
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
     }
 
     public void setImage(Bitmap image) {

@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,12 +25,9 @@ public class oispecificlistFragment extends Fragment {
     oispecificlistAdapter specificlistAdapter;
     RecyclerView oispecificRecyclerView;
     String oi_type;
-
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 
-        System.out.println("Starting oispecificlistFragment");
-
-        View rootView = inflater.inflate(R.layout.list_oi_specific, container, false);
+        System.out.println("Starting oispecificlistFragment");View rootView = inflater.inflate(R.layout.list_oi_specific, container, false);
 
         if (getArguments() != null) {
             oi_type = getArguments().getString("oi_type");
@@ -42,7 +40,6 @@ public class oispecificlistFragment extends Fragment {
         specificlistAdapter = new oispecificlistAdapter(oi_specific_list, getActivity());
         oispecificRecyclerView.setAdapter(specificlistAdapter);
         oispecificRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
         return rootView;
     }
 

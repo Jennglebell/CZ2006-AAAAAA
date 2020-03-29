@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SharingApp_.iml" filepath="$PROJECT_DIR$/SharingApp_.iml" group="SharingApp_" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="SharingApp_/app" />
+      <module fileurl="file://$PROJECT_DIR$/ParkVibe.iml" filepath="$PROJECT_DIR$/ParkVibe.iml" group="ParkVibe" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="ParkVibe/app" />
     </modules>
   </component>
 </project>

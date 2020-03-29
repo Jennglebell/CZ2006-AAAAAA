@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -44,7 +45,7 @@ public class EditItemActivity extends AppCompatActivity implements Observer, Vie
     private String id_str;
 
 
-
+    private TextView like_num;
     private EditText name;
     private EditText hashtag; //hashtag_str/id
     private EditText longti; //coord longitude
@@ -60,7 +61,6 @@ public class EditItemActivity extends AppCompatActivity implements Observer, Vie
     private int pos;
     private String status_str;
     private Bitmap image;
-    public List<String> owners;
     List<Bitmap> images;
     //staggeredRecyclerView
     List<oiphoto> oi_photos_list = getPhotoData();
@@ -85,6 +85,7 @@ public class EditItemActivity extends AppCompatActivity implements Observer, Vie
         delete_button = (Button) findViewById(R.id.delete_item);                    // initially GONE
         save_button = (ImageButton) findViewById(R.id.save_button);                      // initially GONE
         deleteImage = (ImageButton) findViewById(R.id.deleteImage);
+
         Intent intent = getIntent(); // Get intent from ItemsFragment
         pos = intent.getIntExtra("position", 0);
         //user_id = intent.getStringExtra("user_id");
@@ -109,6 +110,7 @@ public class EditItemActivity extends AppCompatActivity implements Observer, Vie
     }
 
 
+
     public void addPhoto(View view) {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (intent.resolveActivity(getPackageManager()) != null) {
@@ -123,19 +125,6 @@ public class EditItemActivity extends AppCompatActivity implements Observer, Vie
     public void onClick(View v) {
 
     }
-    public void delete_photo(View view) {
-        System.out.println("delete image..... ");
-        Intent intent = getIntent(); // Get intent from ItemsFragment
-        int index = intent.getIntExtra("clicked_image_index", 0);
-        System.out.println("clicking photo:"+index);
-      //  oi_photos_list.remove(index);
-//        if(view.equals(deleteImage)){
-//            removeAt(getPosition());
-//        }else if (mItemClickListener != null) {
-//            mItemClickListener.onItemClick(view, getPosition());
-//        }
-//    }
-    }
 
     @Override
     protected void onActivityResult(int request_code, int result_code, Intent intent){
@@ -145,7 +134,11 @@ public class EditItemActivity extends AppCompatActivity implements Observer, Vie
         if (request_code == REQUEST_CODE && result_code == RESULT_OK){
             Bundle extras = intent.getExtras();
             image = (Bitmap) extras.get("data");
-            oi_photos_list.add(new oiphoto(image, LoginActivity.getName()));
+//            likeNums = intent.getIntExtra("like_num", 0);
+//            System.out.println("likeNums:"+ likeNums);
+            oiphoto oiphoto_ = new oiphoto(image, LoginActivity.getName(), 0);
+//            oiphoto_.setLikes(likeNums);
+            oi_photos_list.add(oiphoto_);
             images.add(image);
             //owners.add(LoginActivity.getName());
         }
@@ -194,7 +187,8 @@ public class EditItemActivity extends AppCompatActivity implements Observer, Vie
         if(!validateInput()){
             return;
         }
-        System.out.println("save how many photos? " + oi_photos_list.size());
+//        System.out.println("save how many photos? " + oi_photos_list.size());
+//        System.out.println("save how many likes? " + oi_photos_list.get(0).getLikes());
         String item_id = item_controller.getId(); // Reuse the item id
        // Item updated_item = new Item(hashtag_str, name_str, description_str, image, id_str);
         //Item updated_item = new Item(hashtag_str, name_str, description_str, images, id_str);
@@ -248,20 +242,18 @@ public class EditItemActivity extends AppCompatActivity implements Observer, Vie
             System.out.println("get images size" + images.size());
                 if (oi_photos_list_ != null) {
                     for (oiphoto oiphoto_ : oi_photos_list_) {
-                        System.out.println("Owner has:" + oiphoto_.getOwner());
+//                        System.out.println("Owner has:" + oiphoto_.getOwner());
+//                        System.out.println("Like has:" + oiphoto_.getLikes());
                         oi_photos_list.add(oiphoto_);
                     }
                 }
 
 
-                System.out.println("who is the user?: " + LoginActivity.getName());
+//                System.out.println("who is the user?: " + LoginActivity.getName());
                 String username = LoginActivity.getName();
 
                 User user = user_list_controller.getUserByUsername(username);
                 boolean admin = user.getAdmin();
-                if (admin) {
-                    System.out.println(username + "is admin");
-                }
                 if (!admin) {
 //                    for(oiphoto oiphoto_ : oi_photos_list){
 //                        if(oiphoto_.getOwner().equals(LoginActivity.getUser())){
