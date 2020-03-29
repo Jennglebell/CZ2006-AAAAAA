@@ -57,7 +57,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-
     public void login(View view) {
         username_str = username.getText().toString();
         email_str = email.getText().toString();

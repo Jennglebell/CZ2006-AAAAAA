@@ -40,12 +40,20 @@ public class oispecificphotosAdapter2 extends RecyclerView.Adapter<oispecificpho
                 .placeholder(R.drawable.ic_launcher_background);
         Glide.with(context).asBitmap().load(oiphotolist.get(position).imgurl).apply(requestOptions).into(viewHolder.oiphotosimage);
          System.out.println("Photo owner:"+oiphotolist.get(position).getOwner());
+<<<<<<< HEAD:ParkVibe/app/src/main/java/com/example/sharingapp/oispecificphotosAdapter2.java
         System.out.println("user:"+LoginActivity.getName());
          //if(oiphotolist.get(position).getOwner()!=null) {
              if (oiphotolist.get(position).getOwner() == LoginActivity.getName()) {
                  viewHolder.deleteimage.setVisibility(View.VISIBLE);
              }
        //  }
+=======
+         if(oiphotolist.get(position).getOwner()!=null) {
+             if (oiphotolist.get(position).getOwner() == LoginActivity.getName()) {
+                 viewHolder.deleteimageButton.setVisibility(View.VISIBLE);
+             }
+         }
+>>>>>>> e1396f3bd08f7218e2d6c967d7f04c4b7f3add8f:SharingApp_/app/src/main/java/com/example/sharingapp/oispecificphotosAdapter.java
 
     }
 

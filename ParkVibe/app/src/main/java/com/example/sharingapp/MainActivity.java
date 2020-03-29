@@ -94,11 +94,14 @@ public class MainActivity extends AppCompatActivity {
     public void displayMap(View view){
         Intent intent = new Intent(this, MapDisplay.class);
         startActivity(intent);
+<<<<<<< HEAD:ParkVibe/app/src/main/java/com/example/sharingapp/MainActivity.java
     }
 
     public void listView(View view){
         Intent intent = new Intent(this, ListUI.class);
         startActivity(intent);
+=======
+>>>>>>> e1396f3bd08f7218e2d6c967d7f04c4b7f3add8f:SharingApp_/app/src/main/java/com/example/sharingapp/MainActivity.java
     }
     protected void onNewIntent(Intent intent) {
         System.out.println("OnNewIntent running!");

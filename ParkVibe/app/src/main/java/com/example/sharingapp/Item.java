@@ -22,7 +22,10 @@ public class Item extends Observable {
     private String description;
     private Location location;
     protected List<oiphoto> oiphotos;
+<<<<<<< HEAD:ParkVibe/app/src/main/java/com/example/sharingapp/Item.java
     protected List<oiphoto> oiphotos_temp;
+=======
+>>>>>>> e1396f3bd08f7218e2d6c967d7f04c4b7f3add8f:SharingApp_/app/src/main/java/com/example/sharingapp/Item.java
     protected transient Bitmap image;
     protected List<Bitmap> images;
     protected String image_base64;
@@ -53,12 +56,50 @@ public class Item extends Observable {
         this.name = name;
         this.description= description;
         this.location = null;
+<<<<<<< HEAD:ParkVibe/app/src/main/java/com/example/sharingapp/Item.java
         oiphotos_temp = new ArrayList<>();
         //getowners = new HashMap<>();
         for(oiphoto oiphoto : oiphotos) {
             if(oiphoto!=null) {
                 addoiphoto(oiphoto);
             }
+=======
+        image_base64s = new ArrayList<>();
+        addImage(image);
+        if (id == null){
+            setId();
+        } else {
+            updateId(id);
+        }
+    }
+
+//    public Item(String hashtag, String name, String description, List<Bitmap> images, String id) {
+//        this.hashtag = hashtag;
+//        this.name = name;
+//        this.description= description;
+//        this.location = null;
+//        image_base64s = new ArrayList<>();
+//        for(Bitmap image : images) {
+//            if(image!=null)
+//                addImage(image);
+//        }
+//        if (id == null){
+//            setId();
+//        } else {
+//            updateId(id);
+//        }
+//    }
+
+    public Item(String hashtag, String name, String description, List<oiphoto> oiphotos, String id) {
+        this.hashtag = hashtag;
+        this.name = name;
+        this.description= description;
+        this.location = null;
+        image_base64s = new ArrayList<>();
+        for(oiphoto oiphoto : oiphotos) {
+            if(oiphoto!=null && oiphoto.getImage()!=null)
+                addImage(oiphoto.getImage());
+>>>>>>> e1396f3bd08f7218e2d6c967d7f04c4b7f3add8f:SharingApp_/app/src/main/java/com/example/sharingapp/Item.java
         }
         if (id == null){
             setId();
@@ -146,6 +187,7 @@ public class Item extends Observable {
         return images;
     }
 
+<<<<<<< HEAD:ParkVibe/app/src/main/java/com/example/sharingapp/Item.java
 //    public List<String> getOwners(){
 //        return this.owners;
 //    }
@@ -179,6 +221,38 @@ public class Item extends Observable {
         }
         return oiphotos;
     }
+=======
+
+
+//    public void addoiphoto(oiphoto oiphoto_){
+//
+//        if (oiphoto_.getImage() != null) {
+//            image = oiphoto_.getImage();
+//            ByteArrayOutputStream byteArrayBitmapStream = new ByteArrayOutputStream();
+//            oiphoto_.getImage().compress(Bitmap.CompressFormat.PNG, 100, byteArrayBitmapStream);
+//
+//            byte[] b = byteArrayBitmapStream.toByteArray();
+//            image_base64 = Base64.encodeToString(b, Base64.DEFAULT);
+//            // if(image_base64!=null)
+//            image_base64s.add(image_base64);
+//        }
+//        notifyObservers();
+//    }
+//
+//    public List<Bitmap> getImages(){
+//        images = new ArrayList<>();
+//        if (image_base64s != null) {
+//            for(String image_base64 : image_base64s) {
+//                byte[] decodeString = Base64.decode(image_base64, Base64.DEFAULT);
+//                image = BitmapFactory.decodeByteArray(decodeString, 0, decodeString.length);
+//                if(image!=null)
+//                    images.add(image);
+//                notifyObservers();
+//            }
+//        }
+//        return images;
+//    }
+>>>>>>> e1396f3bd08f7218e2d6c967d7f04c4b7f3add8f:SharingApp_/app/src/main/java/com/example/sharingapp/Item.java
 
     public String getId(){
         return this.id;
