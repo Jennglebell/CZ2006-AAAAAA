@@ -12,23 +12,23 @@
     tools:context="com.example.sharingapp.MainActivity">
 
     <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:background="@color/colorPrimary"
-        android:onClick="listView"
-        app:srcCompat="@android:drawable/ic_input_add"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="0dp" />
-
-    <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:onClick="addItemActivity"
         android:background="@color/colorPrimary"
+        app:srcCompat="@android:drawable/ic_input_add"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:background="@color/colorPrimary"
+        android:onClick="listView"
         app:srcCompat="@android:drawable/ic_input_add"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="0dp" />

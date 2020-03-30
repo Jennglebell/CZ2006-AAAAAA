@@ -45,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mViewPager.setOffscreenPageLimit(0);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(mViewPager);
+       // TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+       // tabLayout.setupWithViewPager(mViewPager);
     }
 
     @Override
