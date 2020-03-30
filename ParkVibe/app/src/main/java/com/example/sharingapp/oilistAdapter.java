@@ -43,10 +43,13 @@ public class oilistAdapter extends RecyclerView.Adapter<oilistViewHolder> {
         viewHolder.oiparentCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 System.out.println("onBindViewHolder clicked: " + oilist.get(position).name);
 
-                Intent intent = new Intent(context, MainActivity.class);
+                Intent intent = new Intent(context, ListUI.class);
+                //intent.getExtras("")
                 intent.putExtra("oi_type", oilist.get(position).name);
+               // intent.putExtra("oi_type", oilist.get(position).name);
                 intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP); //this will probably cause issues when navigating from other pages. research alternatives.
                 context.startActivity(intent);
 

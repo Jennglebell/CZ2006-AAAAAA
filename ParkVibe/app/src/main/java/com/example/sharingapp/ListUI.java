@@ -2,10 +2,13 @@ package com.example.sharingapp;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
@@ -39,6 +42,30 @@ public class ListUI extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(ListUI.this, LinearLayoutManager.HORIZONTAL, false));
 
         Log.d("ListUI", "Running end");
+
+    }
+
+
+    protected void onNewIntent(Intent intent) {
+        System.out.println("OnNewIntent running!");
+        if (intent.hasExtra("oi_type")) {
+            String oi_type = intent.getStringExtra("oi_type");
+
+            System.out.println("Intent received!" + oi_type);
+
+            Bundle bundle = new Bundle();
+            bundle.putString("oi_type", oi_type);
+            oispecificlistFragment fragobj = new oispecificlistFragment();
+            fragobj.setArguments(bundle);
+
+            System.out.println("MainActivity bundle received!" + oi_type);
+
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.replace(R.id.emptyfragment, fragobj);
+            transaction.commit();
+
+        }
     }
 
 /*    private void getIncomingIntent() {

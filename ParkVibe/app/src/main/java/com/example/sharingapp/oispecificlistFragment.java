@@ -27,7 +27,8 @@ public class oispecificlistFragment extends Fragment {
     String oi_type;
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 
-        System.out.println("Starting oispecificlistFragment");View rootView = inflater.inflate(R.layout.list_oi_specific, container, false);
+        System.out.println("Starting oispecificlistFragment");
+        View rootView = inflater.inflate(R.layout.list_oi_specific, container, false);
 
         if (getArguments() != null) {
             oi_type = getArguments().getString("oi_type");
