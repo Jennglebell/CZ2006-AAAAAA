@@ -7,7 +7,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    tools:context="com.example.sharingapp.EditUserActivity"
+    tools:context="com.example.sharingapp.UI.EditUserActivity"
     android:orientation="vertical">
 
     <LinearLayout

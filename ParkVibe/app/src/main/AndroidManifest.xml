@@ -27,7 +27,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".LoginActivity"
+            android:name="UI.LoginActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -36,20 +36,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="UI.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".AddItemActivity" />
-        <activity android:name=".EditItemActivity" />
-        <activity android:name=".EditUserActivity" />
-        <activity android:name=".SearchActivity" />
-        <activity android:name=".ViewItemActivity" />
+        <activity android:name="UI.AddItemActivity" />
+        <activity android:name="UI.EditItemActivity" />
+        <activity android:name="UI.EditUserActivity" />
+        <activity android:name="UI.SearchActivity" />
+        <activity android:name="UI.ViewItemActivity" />
         <activity
             android:name=".ViewItemBidsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ViewUserActivity" />
+        <activity android:name="UI.ViewUserActivity" />
         <activity android:name=".BorrowedItemsActivity"></activity>
-        <activity android:name=".MapDisplay" />
+        <activity android:name="UI.MapDisplay" />
         <activity android:name=".ListUI" />
 
         <meta-data android:name="com.google.android.geo.API_KEY"
