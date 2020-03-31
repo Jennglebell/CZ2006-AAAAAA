@@ -24,6 +24,10 @@ public class ItemListController {
         return item_list.getItems();
     }
 
+    public ArrayList<Item> getItems(String oitype) {
+        return item_list.filterItems(oitype);
+    }
+
     public ArrayList<Item> getMyItems(String user_id) {
         return item_list.getMyItems(user_id);
     }
@@ -61,6 +65,12 @@ public class ItemListController {
     public ArrayList<Item> filterItems(String user_id, String status) {
         return item_list.filterItems(user_id, status);
     }
+
+    public ArrayList<Item> filterItems(String oitpye) {
+        return item_list.filterItems(oitpye);
+    }
+
+
 
     public ArrayList<Item> getSearchItems(String user_id) {
         return item_list.getSearchItems(user_id);

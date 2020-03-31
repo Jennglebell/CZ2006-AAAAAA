@@ -27,10 +27,29 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <HorizontalScrollView
+        android:id="@+id/oihorizontalscroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/listviewoititle"
+        android:layout_marginTop="60dp"
+        android:scrollbarFadeDuration="0"
+        android:scrollbars="none">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/horizontalrecyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:nestedScrollingEnabled="false"
+            android:orientation="horizontal"
+            android:layout_marginRight="50dp"/>
+    </HorizontalScrollView>
+
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="220dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

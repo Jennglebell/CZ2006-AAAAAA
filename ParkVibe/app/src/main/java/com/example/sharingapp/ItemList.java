@@ -144,6 +144,16 @@ public class ItemList extends Observable {
             }
             return selected_items;
         }
+
+    public ArrayList<Item> filterItems(String oitype) {
+        ArrayList<Item> selected_items = new ArrayList<>();
+        for (Item i: items) {
+            if(i.getHashtag().equals(oitype))
+            selected_items.add(i);
+        }
+        return selected_items;
+    }
+
     
         // Used by AllItemsFragment
         public ArrayList<Item> getMyItems(String user_id) {

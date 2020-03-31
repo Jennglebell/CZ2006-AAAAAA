@@ -8,6 +8,8 @@ import androidx.appcompat.widget.Toolbar;
 
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,7 +17,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -24,9 +27,12 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private String user_id;
-
+    private String oitype;
+    oilistAdapter adapter;
+    RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Intent intent = getIntent(); // Get intent from LoginActivity
@@ -43,10 +49,51 @@ public class MainActivity extends AppCompatActivity {
         ViewPager mViewPager = (ViewPager) findViewById(R.id.container);
 
         mViewPager.setAdapter(mSectionsPagerAdapter);
-        mViewPager.setOffscreenPageLimit(0);
+//        mViewPager.setOffscreenPageLimit(0);
 
        // TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
        // tabLayout.setupWithViewPager(mViewPager);
+
+
+        oitype = intent.getStringExtra("oi_type");
+        System.out.println("oitype in main" + oitype);
+        Bundle bundle = new Bundle();
+        bundle.putString("oi_type", oitype);
+// set Fragmentclass Arguments
+        AllItemsFragment fragobj = new AllItemsFragment();
+        fragobj.setArguments(bundle);
+
+
+        List<oi> oi_list;
+        oi_list = getData();
+        recyclerView = findViewById(R.id.horizontalrecyclerView);
+        adapter = new oilistAdapter(oi_list, this);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false));
+    }
+
+
+//    String oitype;
+//
+//    public String getOitype() {
+//        return oitype;
+//    }
+//
+//    public void setOitype(String oitype) {
+//        this.oitype = oitype;
+//    }
+
+
+
+    private List<oi> getData() {
+        List<oi> oilist = new ArrayList<>();
+        oilist.add(new oi("HT", false, "https://s3-ap-southeast-1.amazonaws.com/c3a-java-files/73c8d717302fbb8097a6e96c328f264e.jpg"));
+        oilist.add(new oi("BBQ", true, "https://www.nparks.gov.sg/-/media/nparks-real-content/gardens-parks-and-nature/parks-and-nature-reserve/labrador-nature-reserve/rsz_bbq_pits.jpg?h=149&la=en&mw=237&w=237&hash=49CCF327B01E02A10114038FE6FBD977B8BF4052"));
+        oilist.add(new oi("Heritage Trees", false, "https://s3-ap-southeast-1.amazonaws.com/c3a-java-files/73c8d717302fbb8097a6e96c328f264e.jpg"));
+
+        //GET ALL OI DATA HERE. above is dummy data. add to the oilist.
+        return oilist;
     }
 
     @Override
@@ -64,8 +111,13 @@ public class MainActivity extends AppCompatActivity {
                 search_intent.putExtra("user_id", user_id);
                 startActivity(search_intent);
                 return true;
+            case R.id.borrowed_items:
+                Intent b_intent = new Intent(this, MapDisplay.class);
+                b_intent.putExtra("user_id", user_id);
+                startActivity(b_intent);
+                return true;
             case R.id.edit_profile:
-                Intent profile_intent = new Intent(this, EditUserActivity.class);
+                Intent profile_intent = new Intent(this, AddItemActivity.class);
                 profile_intent.putExtra("user_id", user_id);
                 startActivity(profile_intent);
                 return true;
@@ -96,31 +148,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void listView(View view){
-        Intent intent = new Intent(this, ListUI.class);
-        startActivity(intent);
-    }
-    protected void onNewIntent(Intent intent) {
-        System.out.println("OnNewIntent running!");
-        if (intent.hasExtra("oi_type")) {
-            String oi_type = intent.getStringExtra("oi_type");
-
-            System.out.println("Intent received!" + oi_type);
-
-            Bundle bundle = new Bundle();
-            bundle.putString("oi_type", oi_type);
-            oispecificlistFragment fragobj = new oispecificlistFragment();
-            fragobj.setArguments(bundle);
-
-            System.out.println("MainActivity bundle received!" + oi_type);
-
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            FragmentTransaction transaction = fragmentManager.beginTransaction();
-            transaction.replace(R.id.emptyfragment, fragobj);
-            transaction.commit();
-
-        }
-    }
-
-
+//    public void listView(View view){
+//        Intent intent = new Intent(this, ListUI.class);
+//        startActivity(intent);
+//    }
 }

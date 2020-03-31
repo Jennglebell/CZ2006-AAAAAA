@@ -59,8 +59,14 @@ import com.google.maps.android.data.geojson.GeoJsonFeature;
 import com.google.maps.android.data.geojson.GeoJsonLayer;
 import com.google.maps.android.data.geojson.GeoJsonPointStyle;
 
+import com.google.maps.android.data.kml.KmlLayer;
+import com.google.maps.android.data.kml.KmlContainer;
+import com.google.maps.android.data.kml.KmlPlacemark;
+
+
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -301,6 +307,7 @@ public class MapDisplay extends FragmentActivity implements OnMapReadyCallback, 
 	private void retrieveFileFromResource() {
 		try {
 			GeoJsonLayer layer = new GeoJsonLayer(mMap, R.raw.heritagetrees, this);
+
 			List<LatLng> locations = new ArrayList<>();
 			List<String> names = new ArrayList<>();
 			List<String> descriptions = new ArrayList<>();
@@ -311,12 +318,12 @@ public class MapDisplay extends FragmentActivity implements OnMapReadyCallback, 
 			}
 // For testing, set the number of OIs
 			List<String> names_test = new ArrayList<>();
-			for(int i = 0; i < 20; i++) {
+			for(int i = 0; i < 5; i++) {
 				names_test.add(names.get(i));
 			}
 			    int i=0;
 				for (String name : names_test) {
-					Item item = new Item("hashtag", name, "description", (Bitmap) null, UUID.randomUUID().toString());
+					Item item = new Item("HT", name, "description", (Bitmap) null, UUID.randomUUID().toString());
 					ItemController item_controller = new ItemController(item);
 					item_controller.setLocation((String.valueOf(locations.get(i).longitude)), String.valueOf(locations.get(i).latitude));
 					boolean success = item_list_controller.addItem(item, context);
@@ -325,18 +332,39 @@ public class MapDisplay extends FragmentActivity implements OnMapReadyCallback, 
 						return;
 					}
 			}
+			List<String> names_test2 = new ArrayList<>();
+			for(int j = 5; j < 10; j++) {
+				names_test2.add(names.get(j));
+			}
+
+			int j=0;
+			for (String name : names_test2) {
+				Item item = new Item("BBQ", name, "description", (Bitmap) null, UUID.randomUUID().toString());
+				ItemController item_controller = new ItemController(item);
+				item_controller.setLocation((String.valueOf(locations.get(j).longitude)), String.valueOf(locations.get(j).latitude));
+				boolean success = item_list_controller.addItem(item, context);
+				j++;
+				if (!success) {
+					return;
+				}
+			}
 
 
-//			for(String description : descriptions){
-//				System.out.println("description: "+ description);
+//			KmlLayer layer2 = new KmlLayer(mMap, R.raw.nparksbbq, this);
+//			List<LatLng> locations_bbq = new ArrayList<>();
+//			List<String> names_bbq = new ArrayList<>();
+//			List<String> descriptions_bbq = new ArrayList<>();
+//			for (KmlPlacemark placemarker: layer2.getPlacemarks()){
+//				System.out.println("KML:" + placemarker.getMarkerOptions().getTitle());
+//				locations_bbq.add((LatLng) feature.getGeometry().getGeometryObject());
+//				names_bbq.add(feature.getProperty("Name"));
+//				descriptions_bbq.add(feature.getProperty("Description"));
 //			}
-//			for(String name : names){
-//				System.out.println("Name: "+ name);
-//			}
-//			for (LatLng point : locations) {
-//				System.out.println("Coordinate: "+ point.latitude + "," +point.longitude);
-//			}
-//			System.out.println(layer.getFeature("coordinates"));
+
+
+
+
+
 			addGeoJsonLayerToMap(layer);
 		} catch (IOException e) {
 			Log.e(mLogTag, "GeoJSON file could not be read");
@@ -440,4 +468,5 @@ public class MapDisplay extends FragmentActivity implements OnMapReadyCallback, 
 		});
 	//	getLocations(layer);
 	}
+
 }

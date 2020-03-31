@@ -10,11 +10,11 @@
 
     <item
         android:id="@+id/borrowed_items"
-        android:title="@string/borrowed_items" />
+        android:title="MapDisplay" />
 
     <item
         android:id="@+id/edit_profile"
-        android:title="@string/edit_profile" />
+        android:title="AddOI" />
 
     <item
         android:id="@+id/logout"

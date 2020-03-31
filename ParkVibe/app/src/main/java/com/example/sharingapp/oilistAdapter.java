@@ -18,11 +18,25 @@ public class oilistAdapter extends RecyclerView.Adapter<oilistViewHolder> {
 
     List<oi> oilist = Collections.emptyList();
     Context context;
+    AdapterInterface listener;
 
-    public oilistAdapter(List<oi> oilist, Context context){
+    public  oilistAdapter(List<oi> oilist, Context context){
         this.oilist = oilist;
         this.context = context;
     }
+
+    public  oilistAdapter(AdapterInterface listener){
+
+        this.listener = listener;
+
+    }
+
+    public interface AdapterInterface
+    {
+        void onClick(String value);
+    }
+
+
 
     public oilistViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         Context context = parent.getContext();
@@ -45,13 +59,19 @@ public class oilistAdapter extends RecyclerView.Adapter<oilistViewHolder> {
             public void onClick(View v) {
 
                 System.out.println("onBindViewHolder clicked: " + oilist.get(position).name);
-
-                Intent intent = new Intent(context, ListUI.class);
-                //intent.getExtras("")
+                ItemsFragment.setOitype(oilist.get(position).name);
+                Intent intent = new Intent(context, MainActivity.class);
                 intent.putExtra("oi_type", oilist.get(position).name);
-               // intent.putExtra("oi_type", oilist.get(position).name);
-                intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP); //this will probably cause issues when navigating from other pages. research alternatives.
+//                Bundle bundle = new Bundle();
+//                bundle.putString("oi_type", oilist.get(position).name);
+
+//                ItemsFragment f1 = new ItemsFragment();
+//                Bundle args1 = new Bundle();
+//                args1.putString("oi_type",oilist.get(position).name);
+//                f1.setArguments(args1);
+            //    intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP); //this will probably cause issues when navigating from other pages. research alternatives.
                 context.startActivity(intent);
+
 
 
             }

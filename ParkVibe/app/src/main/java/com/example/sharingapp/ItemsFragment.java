@@ -1,7 +1,9 @@
 package com.example.sharingapp;
 
+import android.app.job.JobInfo;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
@@ -16,8 +18,9 @@ import java.util.ArrayList;
 /**
  * Superclass of AvailableItemsFragment, BorrowedItemsFragment, BiddedItemsFragment and AllItemsFragment
  */
-public abstract class ItemsFragment extends Fragment implements Observer {
+public class ItemsFragment extends Fragment implements Observer {
 
+    private static String oi_type;
     private ItemList item_list = new ItemList();
 
     ItemListController item_list_controller = new ItemListController(item_list);
@@ -32,24 +35,40 @@ public abstract class ItemsFragment extends Fragment implements Observer {
     private Context context;
     private Fragment fragment;
     private boolean update = false;
+    //String oi_type;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         this.context = getContext();
-
+        Intent intent = new Intent();
+      //  oi_type = intent.getStringExtra("oi_type");
+    //    oi_type="BBQ";
+//        if (getArguments() != null) {
+//            oi_type = getArguments().getString("oi_type");
+//        }
+        System.out.println("oitype in itemFragment" + oi_type);
         item_list_controller.loadItems(context); // Call to update() suppressed
         update = true; // Future calls to update() permitted
 
         this.inflater = inflater;
         this.container = container;
 
+
         return rootView;
     }
+
+    public static void setOitype(String oitype) {
+        oi_type = oitype;
+    }
+
 
     public void setVariables(int resource, int id ) {
         rootView = inflater.inflate(resource, container, false);
         list_view = (ListView) rootView.findViewById(id);
-        selected_items = filterItems();
+        selected_items = filterItems(oi_type);
+
     }
 
     public void setUserId(Bundle b) {
@@ -88,7 +107,10 @@ public abstract class ItemsFragment extends Fragment implements Observer {
      * BiddedItemsFragment and AllItemsFragment
      * @return selected_items
      */
-    public abstract ArrayList<Item> filterItems();
+    //public abstract ArrayList<Item> filterItems();
+    public  ArrayList<Item> filterItems(String oitype){
+        return item_list_controller.getItems(oitype);
+    };
 
     /**
      * Called when the activity is destroyed, thus we remove this fragment as an observer
@@ -104,7 +126,7 @@ public abstract class ItemsFragment extends Fragment implements Observer {
      */
     public void update(){
         if (update) {
-            selected_items = filterItems(); // Ensure items are filtered
+            selected_items = filterItems(oi_type); // Ensure items are filtered
             adapter = new ItemFragmentAdapter(context, selected_items, fragment);
             list_view.setAdapter(adapter);
             adapter.notifyDataSetChanged();

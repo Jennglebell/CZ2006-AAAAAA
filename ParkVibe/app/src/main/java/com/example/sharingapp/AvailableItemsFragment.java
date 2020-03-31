@@ -29,4 +29,9 @@ public class AvailableItemsFragment extends ItemsFragment{
         String status = "Available";
         return item_list_controller.filterItems(user_id, status);
     }
+
+    public ArrayList<Item> filterItems(String oitpe) {
+        String status = "Available";
+        return item_list_controller.filterItems(oitpe);
+    }
 }
