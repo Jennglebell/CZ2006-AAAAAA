@@ -169,4 +169,13 @@ public class ItemList extends Observable {
             }
             return selected_items;
         }
+
+    public Item getItem(String name) {
+        for (Item i: items) {
+            if (i.getName().equals(name)) {
+                return i;
+            }
+        }
+        return null;
+    }
 }

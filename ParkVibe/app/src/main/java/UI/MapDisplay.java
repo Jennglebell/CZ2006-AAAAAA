@@ -59,6 +59,8 @@ import com.google.maps.android.data.Feature;
 import com.google.maps.android.data.geojson.GeoJsonFeature;
 import com.google.maps.android.data.geojson.GeoJsonLayer;
 import com.google.maps.android.data.geojson.GeoJsonPointStyle;
+import com.google.maps.android.data.kml.KmlLayer;
+import com.google.maps.android.data.kml.KmlPlacemark;
 
 
 import org.json.JSONException;
@@ -157,23 +159,17 @@ public class MapDisplay extends FragmentActivity implements OnMapReadyCallback, 
 		// Alternate approach of loading a local GeoJSON file.
 		retrieveFileFromResource();
 
+		//TODO: Remove these test cases
+
 //		Marker mJurongPark = mMap.addMarker(new MarkerOptions()
 //				.position(JurongPark)
 //				.title("Jurong Central Park")
 //				);
-		Marker testMarker = mMap.addMarker(new MarkerOptions()
-				.position(testMarkerPos)
-				.title("marker test")
-				.snippet("Population: 4,137,400"));
-		mMap.moveCamera(CameraUpdateFactory.newLatLng(JurongPark));
-		mMap.addCircle(
-				new CircleOptions()
-						.center(JurongPark)
-						.radius(100.0)
-						.strokeWidth(1f)
-						.strokeColor(Color.rgb(51, 153, 255))
-						.fillColor(Color.argb(70, 102, 178, 255))
-		);
+//		Marker testMarker = mMap.addMarker(new MarkerOptions()
+//				.position(testMarkerPos)
+//				.title("marker test")
+//				.snippet("Population: 4,137,400"));
+//		mMap.moveCamera(CameraUpdateFactory.newLatLng(JurongPark));
 		mMap.setOnInfoWindowClickListener(this);
 		mMap.setOnInfoWindowCloseListener(this);
 		mMap.setOnInfoWindowLongClickListener(this);
@@ -250,15 +246,25 @@ public class MapDisplay extends FragmentActivity implements OnMapReadyCallback, 
 				locationResult.addOnCompleteListener(this, new OnCompleteListener() {
 					@Override
 					public void onComplete(@NonNull Task task) {
+						LatLng userLoc = mDefaultLocation;
 						if (task.isSuccessful()) {
 							mLastKnownLocation = (Location) task.getResult();
-							if(mLastKnownLocation!=null)
-							mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(mLastKnownLocation.getLatitude(), mLastKnownLocation.getLongitude()), DEFAULT_ZOOM));
+							if(mLastKnownLocation!=null){
+								userLoc = new LatLng(mLastKnownLocation.getLatitude(), mLastKnownLocation.getLongitude());
+							}
 						} else {
 							Log.d(TAG, "Current location is null. Using defaults.");
 							Log.e(TAG, "Exception: %s", task.getException());
-							mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mDefaultLocation, DEFAULT_ZOOM));;
 						}
+						mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLoc, DEFAULT_ZOOM));;
+						mMap.addCircle(
+								new CircleOptions()
+										.center(userLoc)
+										.radius(100.0)
+										.strokeWidth(1f)
+										.strokeColor(Color.rgb(51, 153, 255))
+										.fillColor(Color.argb(70, 102, 178, 255))
+						);
 					}
 				});
 			}
@@ -285,6 +291,7 @@ public class MapDisplay extends FragmentActivity implements OnMapReadyCallback, 
 				descriptions.add(feature.getProperty("Description"));
 			}
 // For testing, set the number of OIs
+			//TODO: Limit to 5km distance
 			List<String> names_test = new ArrayList<>();
 			for (int i = 0; i < 5; i++) {
 				names_test.add(names.get(i));
@@ -297,7 +304,7 @@ public class MapDisplay extends FragmentActivity implements OnMapReadyCallback, 
 				boolean success = item_list_controller.addItem(item, context);
 
 				Marker newMarker = mMap.addMarker(new MarkerOptions()
-				.position(new LatLng(locations.get(i).longitude, locations.get(i).latitude))
+				.position(new LatLng(locations.get(i).latitude, locations.get(i).longitude))
 				.title(name)
 				);
 
@@ -319,7 +326,7 @@ public class MapDisplay extends FragmentActivity implements OnMapReadyCallback, 
 				boolean success = item_list_controller.addItem(item, context);
 
 				Marker newMarker = mMap.addMarker(new MarkerOptions()
-						.position(new LatLng(locations.get(j).longitude, locations.get(j).latitude))
+						.position(new LatLng(locations.get(j).latitude, locations.get(j).longitude))
 						.title(name)
 				);
 
@@ -329,6 +336,7 @@ public class MapDisplay extends FragmentActivity implements OnMapReadyCallback, 
 				}
 			}
 
+//TODO: Finish KML Parser
 
 //			KmlLayer layer2 = new KmlLayer(mMap, R.raw.nparksbbq, this);
 //			List<LatLng> locations_bbq = new ArrayList<>();
@@ -461,14 +469,14 @@ public class MapDisplay extends FragmentActivity implements OnMapReadyCallback, 
 	public void onInfoWindowLongClick(Marker marker) {
 		Toast.makeText(this, "Info window clicked",
 				Toast.LENGTH_SHORT).show();
-//		ItemsFragment fragment = new ItemsFragment();
-//		fragment.setFragmentOnItemLongClickListener();
 
-//		int meta_pos = item_list_controller.getIndex(item);
-//		Intent edit = new Intent(context, EditItemActivity.class);
-//		edit.putExtra("id", item_id);
+		Item item = item_list_controller.getItem(marker.getTitle());
+		String item_id = item.getId();
+
+		Intent edit = new Intent(context, EditItemActivity.class);
+		edit.putExtra("id", item_id);
 //		edit.putExtra("position", meta_pos);
-//		startActivity(edit);
+		startActivity(edit);
 
 	}
 }

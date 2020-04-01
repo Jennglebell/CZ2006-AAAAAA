@@ -106,6 +106,8 @@ public class ItemsFragment extends Fragment implements Observer {
         });
     }
 
+
+
     /**
      * filterItems is implemented independently by AvailableItemsFragment, BorrowedItemsFragment
      * BiddedItemsFragment and AllItemsFragment

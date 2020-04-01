@@ -99,4 +99,8 @@ public class ItemListController {
     public void removeObserver(Observer observer) {
         item_list.removeObserver(observer);
     }
+
+    public Item getItem(String name) {
+        return item_list.getItem(name);
+    }
 }

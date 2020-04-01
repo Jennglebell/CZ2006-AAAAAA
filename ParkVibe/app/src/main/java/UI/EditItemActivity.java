@@ -161,13 +161,13 @@ public class EditItemActivity extends AppCompatActivity implements Observer, Vie
         Toast.makeText(context, "Photo added.", Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    public void onBackPressed() {
-        Intent main_intent = new Intent(this, MainActivity.class);
-      //  main_intent.putExtra("user_id", user_id);
-        main_intent.putExtra("id", id_str);
-        startActivity(main_intent);
-    }
+//    @Override
+//    public void onBackPressed() {
+//        Intent main_intent = new Intent(this, MainActivity.class);
+//      //  main_intent.putExtra("user_id", user_id);
+//        main_intent.putExtra("id", id_str);
+//        startActivity(main_intent);
+//    }
 
     public void deleteItem(View view) {
         boolean success = item_list_controller.deleteItem(item, context);
