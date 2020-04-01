@@ -38,7 +38,7 @@ public class ItemFragmentAdapter extends ArrayAdapter<Item> {
         ItemController item_controller = new ItemController(item);
 
         String title = "Name: " + item_controller.getName();
-        String id = "Hashtag: " + item_controller.getHashtag();
+        String id = "Hashtag: " + item_controller.getHashtag(); //SUPPOSED TO BE DISTANCE
         Bitmap thumbnail = item_controller.getImage();
         String description = "Description: " + item_controller.getDescription();
 

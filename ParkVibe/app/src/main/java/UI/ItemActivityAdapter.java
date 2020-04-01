@@ -37,10 +37,10 @@ public class ItemActivityAdapter extends ArrayAdapter<Item> {
         Item item = getItem(position);
         ItemController item_controller = new ItemController(item);
 
-        String title = "Title: " + item_controller.getName();
+        String title = "Name: " + item_controller.getName();
         String description = "Description: " + item_controller.getDescription();
         List<Bitmap> thumbnails = item_controller.getImages();
-        String status = "Hashtag: " + item_controller.getHashtag();
+        String status = "Hashtag: " + item_controller.getHashtag(); //SUPPOSED TO BE DISTANCEp
 
         // Check if an existing view is being reused, otherwise inflate the view.
         if (convertView == null) {
