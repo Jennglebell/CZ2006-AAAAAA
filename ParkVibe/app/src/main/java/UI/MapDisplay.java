@@ -67,7 +67,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class MapDisplay extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
+public class MapDisplay extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener, GoogleMap.OnInfoWindowCloseListener, GoogleMap.OnInfoWindowLongClickListener {
 	private static final LatLng JurongPark = new LatLng(1.338250, 103.707793);
 	private static final LatLng testMarkerPos = new LatLng(1.337904, 103.707866);
 	private SupportMapFragment mapFragment;
@@ -138,6 +138,7 @@ public class MapDisplay extends FragmentActivity implements OnMapReadyCallback, 
 //
 //	}
 
+	@RequiresApi(api = Build.VERSION_CODES.N)
 	@Override
 	public void onMapReady(GoogleMap map) {
 //		if (mMap != null) {
@@ -153,7 +154,7 @@ public class MapDisplay extends FragmentActivity implements OnMapReadyCallback, 
 
 
 		// Download the GeoJSON file.
-	//	retrieveFileFromUrl();
+		//	retrieveFileFromUrl();
 		// Alternate approach of loading a local GeoJSON file.
 		retrieveFileFromResource();
 
@@ -174,33 +175,39 @@ public class MapDisplay extends FragmentActivity implements OnMapReadyCallback, 
 						.strokeColor(Color.rgb(51, 153, 255))
 						.fillColor(Color.argb(70, 102, 178, 255))
 		);
-		mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-			@Override
-			public boolean onMarkerClick(Marker marker) {
-				System.out.println("sadasdasdasd");
-				Intent intent = new Intent(MapDisplay.this, EditItemActivity.class);
-				startActivity(intent);
-				return true;
-			}
-		});
+		mMap.setOnInfoWindowClickListener(this);
+		mMap.setOnInfoWindowCloseListener(this);
+		mMap.setOnInfoWindowLongClickListener(this);
+//		mMap.setInfoWindowAdapter(new CustomInfoWindowAdapter(this));
+//		mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+//			@Override
+//			public void onInfoWindowClick(Marker marker) {
+////				System.out.println("sadasdasdasd");
+////				Intent intent = new Intent(MapDisplay.this, EditItemActivity.class);
+////				startActivity(intent);
+//
+//				if(marker.isInfoWindowShown()){
+//					marker.hideInfoWindow();
+//				} else {
+//					marker.showInfoWindow();
+//				}
+//			}
+//		});
+//		mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+//			@Override
+//			public void onInfoWindowClick(Marker marker) {
+//				MarkerManager.Collection collection = mAllObjects.get(marker);
+//				if (collection != null && collection.mInfoWindowClickListener != null) {
+//					collection.mInfoWindowClickListener.onInfoWindowClick(marker);
+//				}
+//			}
+//		});
 	}
-
 
 //	@Override
-//	public void onInfoWindowClick(Marker marker) {
-////		mMap.setOnInfoWindowClickListener(this);
-//
-//
-////		MarkerManager.Collection collection = mAllObjects.get(marker);
-////		if (collection != null && collection.mInfoWindowClickListener != null) {
-////			collection.mInfoWindowClickListener.onInfoWindowClick(marker);
-////		}
+//	public boolean onMarkerClick(Marker marker) {
+//		return true;
 //	}
-
-	@Override
-	public boolean onMarkerClick(Marker marker) {
-		return true;
-	}
 
     private void setUpMap(){
         ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mMap)).getMapAsync(this);
@@ -455,4 +462,23 @@ public class MapDisplay extends FragmentActivity implements OnMapReadyCallback, 
 	//	getLocations(layer);
 	}
 
+	@Override
+	public void onInfoWindowClick(Marker marker) {
+		Toast.makeText(this, "Info window clicked",
+				Toast.LENGTH_SHORT).show();
+	}
+
+	@Override
+	public void onInfoWindowClose(Marker marker) {
+		Toast.makeText(this, "Info window closed",
+				Toast.LENGTH_SHORT).show();
+	}
+
+	@Override
+	public void onInfoWindowLongClick(Marker marker) {
+		Toast.makeText(this, "Info window clicked",
+				Toast.LENGTH_SHORT).show();
+		Intent intent = new Intent(this, EditItemActivity.class);
+		startActivity(intent);
+	}
 }

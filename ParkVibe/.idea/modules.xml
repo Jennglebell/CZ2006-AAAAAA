@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/ParkVibe.iml" filepath="$PROJECT_DIR$/.idea/ParkVibe.iml" group="ParkVibe" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/CZ2006-AAAAAA-ParkVibe.iml" filepath="$PROJECT_DIR$/CZ2006-AAAAAA-ParkVibe.iml" group="ParkVibe" />
+      <module fileurl="file://$PROJECT_DIR$/app/CZ2006-AAAAAA-ParkVibe-app.iml" filepath="$PROJECT_DIR$/app/CZ2006-AAAAAA-ParkVibe-app.iml" group="ParkVibe/app" />
+      <module fileurl="file://$PROJECT_DIR$/Desktop-CZ2006-AAAAAA-ParkVibe.iml" filepath="$PROJECT_DIR$/Desktop-CZ2006-AAAAAA-ParkVibe.iml" group="ParkVibe" />
+      <module fileurl="file://$PROJECT_DIR$/ParkVibe.iml" filepath="$PROJECT_DIR$/ParkVibe.iml" group="ParkVibe" />
+      <module fileurl="file://$PROJECT_DIR$/app/ParkVibe-app.iml" filepath="$PROJECT_DIR$/app/ParkVibe-app.iml" group="ParkVibe/app" />
+>>>>>>> c17b85534b2f249dbf9fab8e9e248c20b0b9b294
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="ParkVibe/app" />
     </modules>
   </component>
