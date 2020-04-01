@@ -2,11 +2,11 @@ package Control;
 
 import android.graphics.Bitmap;
 
+import java.util.List;
+
 import Model.Item;
 import Model.Observer;
 import Model.oiphoto;
-
-import java.util.List;
 
 /**
  * ItemController is responsible for all communication between views and Item model
@@ -16,11 +16,11 @@ public class ItemController {
 
     private Item item;
 
-    public ItemController(Item item){
+    public ItemController(Item item) {
         this.item = item;
     }
 
-    public String getName(){
+    public String getName() {
         return item.getName();
     }
 
@@ -28,7 +28,7 @@ public class ItemController {
         item.setName(name);
     }
 
-    public String getId(){
+    public String getId() {
         return item.getId();
     }
 
@@ -36,8 +36,13 @@ public class ItemController {
         item.setId();
     }
 
-    public String getHashtag(){return item.getHashtag();}
-    public void setHashtag(String hashtag){item.setHashtag(hashtag);}
+    public String getHashtag() {
+        return item.getHashtag();
+    }
+
+    public void setHashtag(String hashtag) {
+        item.setHashtag(hashtag);
+    }
 
     public void setLocation(String lonti, String lati) {
         item.setLocation(lonti, lati);
@@ -51,31 +56,33 @@ public class ItemController {
         return item.getLati();
     }
 
-    public void setDescription(String description) {
-        item.setDescription(description);
-    }
     public String getDescription() {
         return item.getDescription();
     }
 
+    public void setDescription(String description) {
+        item.setDescription(description);
+    }
 
-    public void addImage(Bitmap new_image){
+    public void addImage(Bitmap new_image) {
         item.addImage(new_image);
     }
 
-    public Bitmap getImage(){
+    public Bitmap getImage() {
         return item.getImage();
     }
 
-    public List<Bitmap> getImages(){
+    public List<Bitmap> getImages() {
         return item.getImages();
     }
 
-    public List<oiphoto> getOiphotos(){
+    public List<oiphoto> getOiphotos() {
         return item.getOiphotos();
     }
 
-    public Item getItem() { return this.item; }
+    public Item getItem() {
+        return this.item;
+    }
 
     public void addObserver(Observer observer) {
         item.addObserver(observer);

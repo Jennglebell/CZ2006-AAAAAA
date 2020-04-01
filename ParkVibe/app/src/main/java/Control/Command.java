@@ -1,4 +1,4 @@
-package Model;
+package Control;
 
 /**
  * Superclass of AddUserCommand, EditUserCommand, AddItemCommand, EditItemCommand, DeleteItemCommand,
@@ -8,13 +8,13 @@ public abstract class Command {
 
     private boolean is_executed;
 
-    public Command(){
+    public Command() {
         is_executed = false;
     }
 
     public abstract void execute();
 
-    public boolean isExecuted(){
+    public boolean isExecuted() {
         return is_executed;
     }
 

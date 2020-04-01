@@ -1,6 +1,9 @@
-package Model;
+package Control;
 
 import android.content.Context;
+
+import Model.Item;
+import Model.ItemList;
 
 /**
  * Command to edit pre-existing item

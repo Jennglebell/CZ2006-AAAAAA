@@ -1,8 +1,7 @@
-package Model;
+package Control;
 
 import android.content.Context;
 
-import Model.Command;
 import Model.User;
 import Model.UserList;
 
@@ -15,7 +14,7 @@ public class AddUserCommand extends Command {
     private User user;
     private Context context;
 
-    public AddUserCommand (UserList user_list, User user, Context context) {
+    public AddUserCommand(UserList user_list, User user, Context context) {
         this.user_list = user_list;
         this.user = user;
         this.context = context;

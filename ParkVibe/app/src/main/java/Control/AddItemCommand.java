@@ -1,8 +1,7 @@
-package Model;
+package Control;
 
 import android.content.Context;
 
-import Model.Command;
 import Model.Item;
 import Model.ItemList;
 
@@ -22,7 +21,7 @@ public class AddItemCommand extends Command {
     }
 
     // Save the item locally
-    public void execute(){
+    public void execute() {
         item_list.addItem(item);
         super.setIsExecuted(item_list.saveItems(context));
     }

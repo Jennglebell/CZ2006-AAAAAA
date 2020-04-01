@@ -2,14 +2,11 @@ package Control;
 
 import android.content.Context;
 
-import Model.AddItemCommand;
-import Model.DeleteItemCommand;
-import Model.EditItemCommand;
+import java.util.ArrayList;
+
 import Model.Item;
 import Model.ItemList;
 import Model.Observer;
-
-import java.util.ArrayList;
 
 /**
  * ItemListController is responsible for all communication between views and ItemList model
@@ -19,16 +16,16 @@ public class ItemListController {
 
     private ItemList item_list;
 
-    public ItemListController(ItemList item_list){
+    public ItemListController(ItemList item_list) {
         this.item_list = item_list;
-    }
-
-    public void setItems(ArrayList<Item> item_list) {
-        this.item_list.setItems(item_list);
     }
 
     public ArrayList<Item> getItems() {
         return item_list.getItems();
+    }
+
+    public void setItems(ArrayList<Item> item_list) {
+        this.item_list.setItems(item_list);
     }
 
     public ArrayList<Item> getItems(String oitype) {
@@ -39,7 +36,7 @@ public class ItemListController {
         return item_list.getMyItems(user_id);
     }
 
-    public boolean addItem(Item item, Context context){
+    public boolean addItem(Item item, Context context) {
         AddItemCommand add_item_command = new AddItemCommand(item_list, item, context);
         add_item_command.execute();
         return add_item_command.isExecuted();
@@ -51,7 +48,7 @@ public class ItemListController {
         return delete_item_command.isExecuted();
     }
 
-    public boolean editItem(Item item, Item updated_item, Context context){
+    public boolean editItem(Item item, Item updated_item, Context context) {
         EditItemCommand edit_item_command = new EditItemCommand(item_list, item, updated_item, context);
         edit_item_command.execute();
         return edit_item_command.isExecuted();
@@ -78,13 +75,12 @@ public class ItemListController {
     }
 
 
-
     public ArrayList<Item> getSearchItems(String user_id) {
         return item_list.getSearchItems(user_id);
     }
 
 
-    public Item getItemById(String id){
+    public Item getItemById(String id) {
         return item_list.getItemById(id);
     }
 

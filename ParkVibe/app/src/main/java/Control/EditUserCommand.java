@@ -1,6 +1,9 @@
-package Model;
+package Control;
 
 import android.content.Context;
+
+import Model.User;
+import Model.UserList;
 
 /**
  * Command used to edit pre-existing user
@@ -12,7 +15,7 @@ public class EditUserCommand extends Command {
     private User new_user;
     private Context context;
 
-    public EditUserCommand (UserList user_list, User old_user, User new_user, Context context) {
+    public EditUserCommand(UserList user_list, User old_user, User new_user, Context context) {
         this.user_list = user_list;
         this.old_user = old_user;
         this.new_user = new_user;

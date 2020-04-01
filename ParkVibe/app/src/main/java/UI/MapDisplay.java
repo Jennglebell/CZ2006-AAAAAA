@@ -303,37 +303,37 @@ public class MapDisplay extends FragmentActivity implements OnMapReadyCallback, 
 				descriptions.add(feature.getProperty("Description"));
 			}
 // For testing, set the number of OIs
-			List<String> names_test = new ArrayList<>();
-			for(int i = 0; i < 5; i++) {
-				names_test.add(names.get(i));
-			}
-			    int i=0;
-				for (String name : names_test) {
-					Item item = new Item("HT", name, "description", (Bitmap) null, UUID.randomUUID().toString());
-					ItemController item_controller = new ItemController(item);
-					item_controller.setLocation((String.valueOf(locations.get(i).longitude)), String.valueOf(locations.get(i).latitude));
-					boolean success = item_list_controller.addItem(item, context);
-					i++;
-					if (!success) {
-						return;
-					}
-			}
-			List<String> names_test2 = new ArrayList<>();
-			for(int j = 5; j < 10; j++) {
-				names_test2.add(names.get(j));
-			}
+//			List<String> names_test = new ArrayList<>();
+//			for(int i = 0; i < 5; i++) {
+//				names_test.add(names.get(i));
+//			}
+//			    int i=0;
+//				for (String name : names_test) {
+//					Item item = new Item("HT", name, "description", (Bitmap) null, UUID.randomUUID().toString());
+//					ItemController item_controller = new ItemController(item);
+//					item_controller.setLocation((String.valueOf(locations.get(i).longitude)), String.valueOf(locations.get(i).latitude));
+//					boolean success = item_list_controller.addItem(item, context);
+//					i++;
+//					if (!success) {
+//						return;
+//					}
+//			}
+//			List<String> names_test2 = new ArrayList<>();
+//			for(int j = 5; j < 10; j++) {
+//				names_test2.add(names.get(j));
+//			}
 
-			int j=0;
-			for (String name : names_test2) {
-				Item item = new Item("BBQ", name, "description", (Bitmap) null, UUID.randomUUID().toString());
-				ItemController item_controller = new ItemController(item);
-				item_controller.setLocation((String.valueOf(locations.get(j).longitude)), String.valueOf(locations.get(j).latitude));
-				boolean success = item_list_controller.addItem(item, context);
-				j++;
-				if (!success) {
-					return;
-				}
-			}
+//			int j=0;
+//			for (String name : names_test2) {
+//				Item item = new Item("BBQ", name, "description", (Bitmap) null, UUID.randomUUID().toString());
+//				ItemController item_controller = new ItemController(item);
+//				item_controller.setLocation((String.valueOf(locations.get(j).longitude)), String.valueOf(locations.get(j).latitude));
+//				boolean success = item_list_controller.addItem(item, context);
+//				j++;
+//				if (!success) {
+//					return;
+//				}
+//			}
 
 
 //			KmlLayer layer2 = new KmlLayer(mMap, R.raw.nparksbbq, this);

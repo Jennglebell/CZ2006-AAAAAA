@@ -10,11 +10,11 @@ public class UserController {
 
     private User user;
 
-    public UserController(User user){
+    public UserController(User user) {
         this.user = user;
     }
 
-    public String getId(){
+    public String getId() {
         return user.getId();
     }
 
@@ -38,7 +38,9 @@ public class UserController {
         user.setEmail(email);
     }
 
-    public User getUser() {return this.user;}
+    public User getUser() {
+        return this.user;
+    }
 
     public void addObserver(Observer observer) {
         user.addObserver(observer);
