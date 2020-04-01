@@ -29,8 +29,9 @@
 
             <ImageButton
                 android:id="@+id/deleteImage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:background="@drawable/cross"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_alignTop="@+id/oiphotos_specificphoto"
                 android:layout_alignRight="@+id/oiphotos_specificphoto"
                 android:onClick="delete_photo"
@@ -38,21 +39,24 @@
 
             <ImageButton
                 android:id="@+id/like"
-                android:layout_width="8pt"
-                android:layout_height="8pt"
+                android:layout_width="10pt"
+                android:layout_height="10pt"
                 android:layout_alignLeft="@+id/oiphotos_specificphoto"
                 android:layout_alignBottom="@+id/oiphotos_specificphoto"
+                android:background="@drawable/like"
                 android:layout_marginLeft="0dp"
                 android:layout_marginBottom="0dp"
                 android:onClick="like" />
             <!--tools:srcCompat="@android:drawable/ic_menu_close_clear_cancel"-->
             <TextView
                 android:id="@+id/like_num"
-                android:layout_width="10pt"
-                android:layout_height="5pt"
+                android:text="0"
+                android:textSize="10sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_above="@+id/like"
-                android:layout_marginLeft="2dp"
-                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="9dp"
+                android:layout_marginBottom="-2dp"
                 />
         </RelativeLayout>
 
