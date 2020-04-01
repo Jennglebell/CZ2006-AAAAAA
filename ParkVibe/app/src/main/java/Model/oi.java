@@ -6,10 +6,12 @@ public class oi {
     public Boolean applied;
     public String imgurl;
 
-    public oi(String name, Boolean applied, String imgurl){
+    public oi(String name, String imgurl){
         this.name = name;
-        this.applied = applied;
+        this.applied = true;
         this.imgurl = imgurl;
-
+    }
+    public void setApplied(){
+        this.applied = true;
     }
 }

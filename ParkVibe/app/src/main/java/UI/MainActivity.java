@@ -63,11 +63,27 @@ public class MainActivity extends AppCompatActivity {
         AllItemsFragment fragobj = new AllItemsFragment();
         fragobj.setArguments(bundle);
 
+        List<oi> oi_list = (ArrayList) getData();
+        List<oi> oilist2 = new ArrayList<>();
 
-        List<oi> oi_list;
-        oi_list = getData();
         recyclerView = findViewById(R.id.horizontalrecyclerView);
-        adapter = new oilistAdapter(oi_list, this);
+
+        List<String> status = new ArrayList<>();
+        status = (ArrayList<String>) getIntent().getSerializableExtra("status");
+
+        if (status != null) {
+            System.out.println("it is not null !!!!! yayyyy");
+            for (oi a : oi_list) {
+                for (String i : status) {
+                    if (a.name.equals(i)) {
+                        oilist2.add(a);
+                        System.out.println("testing testing "+status.get(0));
+                    }
+                }
+            }
+        }
+
+        adapter = new oilistAdapter(oilist2, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false));
@@ -87,10 +103,11 @@ public class MainActivity extends AppCompatActivity {
 
 
     private List<oi> getData() {
-        List<oi> oilist = new ArrayList<>();
-        oilist.add(new oi("HT", false, "https://s3-ap-southeast-1.amazonaws.com/c3a-java-files/73c8d717302fbb8097a6e96c328f264e.jpg"));
-        oilist.add(new oi("BBQ", true, "https://www.nparks.gov.sg/-/media/nparks-real-content/gardens-parks-and-nature/parks-and-nature-reserve/labrador-nature-reserve/rsz_bbq_pits.jpg?h=149&la=en&mw=237&w=237&hash=49CCF327B01E02A10114038FE6FBD977B8BF4052"));
-        oilist.add(new oi("Heritage Trees", false, "https://s3-ap-southeast-1.amazonaws.com/c3a-java-files/73c8d717302fbb8097a6e96c328f264e.jpg"));
+        ArrayList<oi> oilist = new ArrayList<>();
+        oilist.add(new oi("HT",  "https://s3-ap-southeast-1.amazonaws.com/c3a-java-files/73c8d717302fbb8097a6e96c328f264e.jpg"));
+        oilist.add(new oi("BBQ",  "https://www.nparks.gov.sg/-/media/nparks-real-content/gardens-parks-and-nature/parks-and-nature-reserve/labrador-nature-reserve/rsz_bbq_pits.jpg?h=149&la=en&mw=237&w=237&hash=49CCF327B01E02A10114038FE6FBD977B8BF4052"));
+        oilist.add(new oi("Heritage Trees",  "https://s3-ap-southeast-1.amazonaws.com/c3a-java-files/73c8d717302fbb8097a6e96c328f264e.jpg"));
+
 
         //GET ALL OI DATA HERE. above is dummy data. add to the oilist.
         return oilist;
@@ -107,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.search:
-                Intent search_intent = new Intent(this, SearchActivity.class);
+                Intent search_intent = new Intent(this, Filter.class);
                 search_intent.putExtra("user_id", user_id);
                 startActivity(search_intent);
                 return true;
