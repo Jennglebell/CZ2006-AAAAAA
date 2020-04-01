@@ -335,7 +335,6 @@ public class MapDisplay extends FragmentActivity implements OnMapReadyCallback, 
 					return;
 				}
 			}
->>>>>>> a064447208ce6dcc94504e0636d484096e3cefed
 
 //TODO: Finish KML Parser
 
