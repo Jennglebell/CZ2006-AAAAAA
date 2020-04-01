@@ -16,7 +16,7 @@ import java.util.List;
 
 import Model.oi;
 
-public class oilistAdapter extends RecyclerView.Adapter<oilistViewHolder> {
+public class oilistAdapter extends RecyclerView.Adapter<UI.oilistViewHolder> {
 
     List<oi> oilist = Collections.emptyList();
     Context context;
@@ -40,18 +40,18 @@ public class oilistAdapter extends RecyclerView.Adapter<oilistViewHolder> {
 
 
 
-    public oilistViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+    public UI.oilistViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
         //inflate the layout
         View photoView = inflater.inflate(R.layout.list_oi_item, parent, false);
-        oilistViewHolder viewHolder = new oilistViewHolder(photoView);
+        UI.oilistViewHolder viewHolder = new UI.oilistViewHolder(photoView);
 
         return viewHolder;
     }
 
-    public void onBindViewHolder(final oilistViewHolder viewHolder, final int position) {
+    public void onBindViewHolder(final UI.oilistViewHolder viewHolder, final int position) {
         System.out.println("oilistAdapter starting onBindViewHolder");
         viewHolder.oiName.setText(oilist.get(position).name);
         Glide.with(context).asBitmap().load(oilist.get(position).imgurl).into(viewHolder.oiImage);
@@ -61,9 +61,9 @@ public class oilistAdapter extends RecyclerView.Adapter<oilistViewHolder> {
             public void onClick(View v) {
 
                 System.out.println("onBindViewHolder clicked: " + oilist.get(position).name);
-                ItemsFragment.setOitype(oilist.get(position).name);
+                UI.ItemsFragment.setOitype(oilist.get(position).name);
                 Intent intent = new Intent(context, MainActivity.class);
-                intent.putExtra("oi_type", oilist.get(position).name);
+               // intent.putExtra("oi_type", oilist.get(position).name);
 //                Bundle bundle = new Bundle();
 //                bundle.putString("oi_type", oilist.get(position).name);
 
